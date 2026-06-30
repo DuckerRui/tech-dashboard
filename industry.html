@@ -1,0 +1,1643 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>芯片电感产业情报台</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f5f1;
+      --panel: #ffffff;
+      --paper: #fbfbf7;
+      --ink: #20241f;
+      --muted: #6f776d;
+      --line: #d9ddd2;
+      --soft-line: #e8ebe3;
+      --soft: #edf1e9;
+      --accent: #2563eb;
+      --blue: #1e4d72;
+      --blue-2: #2f6f94;
+      --deep-blue: #16456d;
+      --green: #0f766e;
+      --amber: #a45f06;
+      --red: #b42318;
+      --purple: #6d5bd0;
+      --shadow: 0 14px 34px rgba(31, 41, 55, 0.10);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(244, 245, 241, 0.9)),
+        radial-gradient(circle at 14% 0%, rgba(47, 102, 141, 0.12), transparent 34%),
+        var(--bg);
+      color: var(--ink);
+      font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.45;
+    }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    .shell {
+      display: grid;
+      grid-template-columns: 292px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+      padding: 24px 18px;
+      border-right: 1px solid var(--line);
+      background: rgba(251, 251, 247, 0.78);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, #263b32, #2f668d);
+      font-weight: 800;
+    }
+
+    .brand-title {
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .sidebar-card {
+      margin-bottom: 16px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .sidebar-label {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .market-switch {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
+    }
+
+    .market-switch button,
+    .market-switch a {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 34px;
+      padding: 0 8px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    .market-switch .active {
+      border-color: rgba(47, 102, 141, 0.58);
+      background: #eef4fb;
+      color: var(--blue);
+      font-weight: 760;
+    }
+
+    .market-switch a:hover {
+      border-color: rgba(47, 102, 141, 0.7);
+      color: var(--blue);
+      background: #eef4fb;
+    }
+
+    .sidebar-search {
+      margin-bottom: 16px;
+    }
+
+    .sidebar-search input {
+      width: 100%;
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 0 11px;
+      background: var(--panel);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .sidebar-search input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .nav {
+      display: grid;
+      gap: 8px;
+      margin: 18px 0 16px;
+    }
+
+    .nav button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 46px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.62);
+      text-align: left;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 850;
+    }
+
+    .nav button:hover,
+    .nav button.active {
+      border-color: var(--line);
+      background: #263b32;
+      color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(38, 59, 50, 0.12);
+    }
+
+    .nav button span:last-child {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .nav button.active span:last-child,
+    .nav button:hover span:last-child {
+      color: rgba(255, 255, 255, 0.74);
+    }
+
+    .side-panel {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.62);
+      margin-top: 16px;
+    }
+
+    .side-panel h3 {
+      margin: 0 0 8px;
+      font-size: 13px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      height: 24px;
+      padding: 0 8px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: #3f493c;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    main {
+      min-width: 0;
+      padding: 22px 26px 46px;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .search,
+    .select {
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      padding: 0 12px;
+      outline: none;
+    }
+
+    .search:focus,
+    .select:focus {
+      border-color: var(--blue-2);
+      box-shadow: 0 0 0 3px rgba(47, 111, 148, 0.12);
+    }
+
+    .hero {
+      margin-bottom: 16px;
+    }
+
+    .hero-main {
+      padding: 20px;
+      border-radius: 8px;
+      background: #0c263a;
+      color: #fff;
+      min-height: 210px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: auto -70px -110px auto;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: rgba(68, 165, 147, 0.22);
+    }
+
+    .hero-main h2 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-main p {
+      margin: 0;
+      max-width: 720px;
+      color: #dce8ee;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn {
+      border: 1px solid #cfd8cc;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      padding: 8px 11px;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(17, 24, 39, 0.10);
+    }
+
+    .btn.dark {
+      background: #123a57;
+      border-color: #477191;
+      color: #fff;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 10px;
+    }
+
+    .market-view-panel {
+      margin: 10px 0;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+    }
+
+    .market-view-title {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .market-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+
+    .market-tabs button {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 8px 10px;
+      color: #173a5e;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .market-tabs button.active {
+      background: #eef5ff;
+      border-color: #8bb8f5;
+      color: #1d4f91;
+    }
+
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .industry-card {
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 13px;
+      cursor: pointer;
+      text-align: left;
+      color: inherit;
+      text-decoration: none;
+      min-height: 108px;
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+
+    .industry-card:hover {
+      transform: translateY(-2px);
+      border-color: #9ec6c0;
+      box-shadow: var(--shadow);
+    }
+
+    .industry-card h3 {
+      margin: 0;
+      font-size: 15px;
+      color: #173a5e;
+    }
+
+    .industry-card p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .industry-card .source {
+      margin-top: 10px;
+      display: block;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .metric,
+    .panel,
+    .company-card,
+    .calc-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 6px 18px rgba(31, 41, 55, 0.04);
+    }
+
+    .metric {
+      padding: 14px;
+      min-height: 96px;
+    }
+
+    .metric .label {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .metric .value {
+      margin-top: 6px;
+      font-size: 25px;
+      font-weight: 800;
+    }
+
+    .metric .sub {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    section {
+      scroll-margin-top: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin: 0 0 10px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .section-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .panel {
+      padding: 14px;
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th,
+    td {
+      padding: 8px 9px;
+      border-bottom: 1px solid #e6eadf;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    th {
+      background: #eef5f6;
+      color: #244050;
+      font-weight: 750;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    th:first-child,
+    td:first-child {
+      text-align: left;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      max-height: 420px;
+      border: 1px solid #e2e8d8;
+      border-radius: 8px;
+    }
+
+    .compare-table {
+      min-width: 980px;
+    }
+
+    .compare-table th,
+    .compare-table td {
+      text-align: left;
+      min-width: 190px;
+      line-height: 1.65;
+    }
+
+    .compare-table th:first-child,
+    .compare-table td:first-child {
+      min-width: 128px;
+      width: 128px;
+      font-weight: 800;
+      color: #173a5e;
+      background: #f7faf4;
+      position: sticky;
+      left: 0;
+      z-index: 2;
+    }
+
+    .lane-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .lane {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fbfcf8;
+      min-height: 160px;
+    }
+
+    .lane h3 {
+      margin: 0 0 9px;
+      font-size: 14px;
+      color: #173a5e;
+    }
+
+    .lane ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #3f463f;
+      font-size: 13px;
+    }
+
+    .company-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .company-card {
+      padding: 14px;
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+      min-height: 265px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .company-card:hover {
+      transform: translateY(-2px);
+      border-color: #9ec6c0;
+      box-shadow: var(--shadow);
+    }
+
+    .company-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .company-head > div {
+      min-width: 0;
+    }
+
+    .company-card h3 {
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .ticker {
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .role {
+      color: #173a5e;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .desc {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0;
+      min-height: 56px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .pill {
+      border: 1px solid #d8e3d2;
+      background: #f7faf4;
+      color: #3f493c;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 12px;
+    }
+
+    .core-pill {
+      border-color: #d8e3d2;
+      background: #fbfdf8;
+      color: #3f493c;
+      max-width: 100%;
+    }
+
+    .pill.positive { border-color: #badbd2; color: var(--green); background: #eefaf7; }
+    .pill.watch { border-color: #ecd59f; color: var(--amber); background: #fff9eb; }
+    .pill.negative { border-color: #f0b4ad; color: var(--red); background: #fff1ef; }
+
+    .changes {
+      display: grid;
+      gap: 8px;
+      max-height: 480px;
+      overflow-y: auto;
+      padding-right: 4px;
+      scrollbar-color: #b8c4b2 #eef2ea;
+      scrollbar-width: thin;
+    }
+
+    .change-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .change-toolbar-left,
+    .change-toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .toggle-chip {
+      height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: #3f493c;
+      padding: 0 13px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 750;
+      cursor: pointer;
+      transition: border-color .16s ease, background .16s ease, color .16s ease;
+    }
+
+    .toggle-chip.active {
+      border-color: #a8c8bd;
+      background: #eefaf7;
+      color: var(--green);
+    }
+
+    .changes::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .changes::-webkit-scrollbar-track {
+      background: #eef2ea;
+      border-radius: 999px;
+    }
+
+    .changes::-webkit-scrollbar-thumb {
+      background: #b8c4b2;
+      border-radius: 999px;
+    }
+
+    .change-item {
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr) 84px;
+      gap: 10px;
+      align-items: start;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      width: 100%;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+    }
+
+    .change-item:hover {
+      border-color: #b8c4b2;
+      box-shadow: 0 8px 22px rgba(31, 41, 55, .08);
+      transform: translateY(-1px);
+    }
+
+    .change-title {
+      font-weight: 750;
+    }
+
+    .change-summary {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    .change-points {
+      margin: 6px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .change-points li + li {
+      margin-top: 2px;
+    }
+
+    .change-detail-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .change-detail-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcf8;
+      padding: 12px;
+    }
+
+    .change-detail-item h3 {
+      margin: 0 0 7px;
+      font-size: 15px;
+      color: #173a5e;
+    }
+
+    .change-detail-item p {
+      margin: 0 0 8px;
+      color: #3f493c;
+      line-height: 1.7;
+    }
+
+    .calc-layout {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    .calc-card {
+      padding: 14px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .calc-method {
+      display: grid;
+      gap: 8px;
+      color: #3c453b;
+      margin-top: 12px;
+      grid-column: 1 / -1;
+    }
+
+    .method-title {
+      font-weight: 800;
+      color: var(--blue);
+    }
+
+    .method-kpis {
+      display: grid;
+      gap: 8px;
+    }
+
+    .method-kpi {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f8faf6;
+      padding: 9px 10px;
+      display: grid;
+      gap: 2px;
+    }
+
+    .method-kpi span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .method-kpi strong {
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 5px;
+      color: #3c453b;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .input {
+      height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0 10px;
+      background: #fff;
+      outline: none;
+      text-align: right;
+    }
+
+    .input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, .12);
+    }
+
+    .output-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .output {
+      padding: 12px;
+      border-radius: 8px;
+      background: #f7faf4;
+      border: 1px solid #dfe8d8;
+    }
+
+    .output .label {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .output .value {
+      margin-top: 4px;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .gap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .gap-card {
+      border: 1px dashed #d2d8ca;
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+    }
+
+    .gap-card h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+    }
+
+    .gap-card ul {
+      margin: 0;
+      padding-left: 17px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 24px;
+      background: rgba(8, 18, 28, .44);
+      z-index: 40;
+    }
+
+    .modal-backdrop.open {
+      display: grid;
+    }
+
+    .modal {
+      width: min(1040px, 100%);
+      max-height: min(86vh, 820px);
+      overflow: auto;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 28px 80px rgba(0,0,0,.28);
+      animation: enter .18s ease-out;
+    }
+
+    @keyframes enter {
+      from { opacity: 0; transform: translateY(10px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-head {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 15px 16px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+      z-index: 2;
+    }
+
+    .modal-head h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .modal-body {
+      padding: 16px;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .detail-box {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fbfcf8;
+    }
+
+    .detail-box h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      color: #173a5e;
+    }
+
+    .detail-box ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #3f463f;
+      font-size: 13px;
+    }
+
+    .close {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .empty {
+      color: #9a6a00;
+      background: #fff7df;
+      border: 1px solid #f0d58c;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 13px;
+    }
+
+    .source {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 1180px) {
+      .company-grid,
+      .metric-grid,
+      .industry-grid,
+      .lane-grid,
+      .gap-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .hero,
+      .calc-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+        height: auto;
+      }
+      main {
+        padding: 16px;
+      }
+      .topbar {
+        grid-template-columns: 1fr;
+      }
+      .company-grid,
+      .metric-grid,
+      .industry-grid,
+      .lane-grid,
+      .gap-grid,
+      .modal-grid,
+      .output-grid,
+      .field-grid {
+        grid-template-columns: 1fr;
+      }
+      .change-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script type="application/json" id="db-json">{"meta":{"databaseId":"chip-inductor-ai-compute-20260628","title":"芯片电感产业与重点公司跟踪数据库","version":"0.2.0","updatedAt":"2026-06-28","currency":"CNY","units":{"shipment":"万张","marketSpace":"亿元人民币","asp":"元/颗","usage":"颗/芯片或颗/卡"},"baseScenario":"基准情景","notes":["本数据库用于长期跟踪，不构成投资建议。","缺失、未经确认或需要用户后续补充的数据以 null 或“待补充”保留。","市场空间引用已生成的芯片电感三类电感版模型，汇率与价格口径以用户修改后的工作簿为准。"]},"sources":[{"id":"src-local-model-global-20260628","title":"AI芯片电感市场空间测算_三类电感版_全球市场空间_20260628.xlsx","type":"local_workbook","path": "","date":"2026-06-28","confidence":"medium"},{"id":"src-local-maijie-2606","title":"麦捷科技2606.docx","type":"local_meeting_note","path": "","processedText": "","date":"2026-06","confidence":"medium"},{"id":"src-local-sunlord-2606","title":"顺络电子2606.docx","type":"local_meeting_note","path": "","processedText": "","date":"2026-06","confidence":"medium"},{"id":"src-user-prior-chip-inductor-notes","title":"芯片电感专家0623/0625及交流0528整理","type":"local_expert_notes","path": "","date":"2026-05-2026-06","confidence":"medium"},{"id":"src-local-boke-2606","title":"铂科新材2606.docx","type":"local_meeting_note","path": "","processedText": "","date":"2026-06","confidence":"medium"},{"id":"src-local-zhongfu-2606","title":"中富电路2606.docx","type":"local_meeting_note","path": "","processedText": "","date":"2026-06","confidence":"medium"}],"industry":{"definition":"面向AI GPU/ASIC、服务器电源、算力卡和机柜电源系统的高电流、高功率密度电感体系。","trackingGranularities":[{"id":"demand","name":"需求侧","fields":["算力芯片出货量","功耗代际","单卡/单芯片电感用量","机柜/Pod配置","CSP资本开支","GPU与ASIC占比"]},{"id":"product","name":"产品形态","fields":["分立式电感","模组式电感","TLVR电感","铜铁共烧","一体成型","绕线","板载/机柜/电源模块侧应用"]},{"id":"materials","name":"材料体系","fields":["金属软磁粉","羰基铁粉","铁硅铝","铁镍","纳米晶","非晶","磁芯自制率","粉体自制率"]},{"id":"process","name":"工艺与良率","fields":["热压","冷压","铜铁共烧","TLVR结构","VPD/垂直供电","自动化率","良率爬坡","认证周期"]},{"id":"customer","name":"客户与导入","fields":["终端CSP","GPU/ASIC厂商","电源/模块厂","ODM","BOM名单","小批量","量产","份额","替代对象"]},{"id":"financial","name":"财务指标","fields":["AI电感收入","芯片电感ASP","毛利率","单芯片价值量","单柜价值量","传统业务收入","净利率","ROIC"]},{"id":"change","name":"边际变化","fields":["价格变化","订单变化","客户导入","产能扩张","技术路线变化","材料替代","竞争格局变化","风险事件"]},{"id":"valuation","name":"估值与市值计算","fields":["股价","总股本","市值","AI收入","AI净利率","AI利润","传统利润","目标PE","目标PS","目标市值","隐含股价"]}],"productTypes":[{"id":"discrete","name":"分立式电感","defaultAspCny":2.8,"description":"单价约3元人民币以下，适用于部分GPU、板载和传统功率电感场景。","watchItems":["是否进入NVIDIA BOM","高端料号良率","价格年降"]},{"id":"module","name":"模组式电感","defaultAspCny":8,"description":"通常通过电源/模块厂进入ASIC或服务器供电系统，单价高于分立式。","watchItems":["MPS/Infineon/ADI等功率半导体客户","ASIC CSP渗透","模块份额"]},{"id":"tlvr","name":"TLVR电感","defaultAspCny":17.73,"description":"高功率、高瞬态响应电源架构相关，价格和单芯片价值量更高。","watchItems":["TLVR渗透率","VPD/下一代供电路线","材料和磁芯自制率","高功率ASIC/GPU放量"]}],"marketSpaceBase":[{"year":2025,"shipmentCards":1222,"avgUsage":29.7,"avgAsp":4.1,"marketSpace":14.82},{"year":2026,"shipmentCards":1843,"avgUsage":37,"avgAsp":5.9,"marketSpace":39.97},{"year":2027,"shipmentCards":2794,"avgUsage":42.2,"avgAsp":6.8,"marketSpace":79.7},{"year":2028,"shipmentCards":3467,"avgUsage":48.5,"avgAsp":8,"marketSpace":135.26},{"year":2029,"shipmentCards":4284,"avgUsage":67.8,"avgAsp":13.4,"marketSpace":390.33},{"year":2030,"shipmentCards":5380,"avgUsage":68.8,"avgAsp":13.5,"marketSpace":499.74}],"keyChanges":[{"date":"2026-06","title":"AI电感需求从芯片出货与功耗升级双轮驱动","impact":"positive","summary":"NVIDIA Rubin/Future及ASIC平台单芯片用量和TLVR/模组式占比提升，带动单芯片价值量上行。","sourceIds":["src-local-model-global-20260628","src-user-prior-chip-inductor-notes"]},{"date":"2026-06","title":"TLVR渗透率成为2027-2028市场空间弹性变量","impact":"watch","summary":"顺络纪要显示当前行业TLVR渗透约20%-30%，2027-2028有望提升至40%-50%以上，需持续跟踪各平台架构确认。","sourceIds":["src-local-sunlord-2606"]},{"date":"2026-06","title":"材料和良率而非单纯设备成为高端AI电感壁垒","impact":"watch","summary":"麦捷纪要强调高端AI电感核心难点在设计、材料、良率和一致性，稀土掺杂、非晶、纳米晶等材料商业化值得跟踪。","sourceIds":["src-local-maijie-2606"]},{"id":"chg-boke-chip-inductor-202606","date":"2026-06","title":"铂科芯感业务从材料线索升级为可量化收入弹性","impact":"positive","summary":"2026Q1芯感收入1.6亿元，Q2预计2亿元以上，全年指引8亿元以上且新产能顺利爬坡时有达到10亿元可能；模组占比提升至50%-60%是产值上修的核心。","sourceIds":["src-local-boke-2606"]},{"id":"chg-module-dcdc-pcb-202606","date":"2026-06","title":"模块化DC-DC电源方案带来预埋电感电容PCB相邻环节机会","impact":"watch","summary":"除英伟达当前部分方案外，国内大厂、谷歌等12V转1V DC-DC电源更多采用模块方案；该方案要求更厚、更多层、预埋电感电容的PCB工艺，利好中富电路等小而专的配套厂商。","sourceIds":["src-local-zhongfu-2606"]}]},"companies":[{"id":"boke-new-materials","name":"铂科新材","ticker":"300811.SZ","role":"AI芯片电感/模组电感核心标的，兼具软磁材料与芯感产能弹性","positioning":"芯感业务已进入可量化放量阶段，2026年收入指引8亿元以上，顺利时有10亿元可能；模组类产品占比提升带动单位产值和产能规划上修。","confidence":"medium-high","sourceIds":["src-local-boke-2606","src-user-prior-chip-inductor-notes"],"segments":[{"name":"芯感业务","revenueQ1_2026":1.6,"revenueQ2_2026Estimate":"2亿元以上","revenue2026Estimate":"8亿元以上，顺利时可达10亿元","grossMargin2026Estimate":"约50%","status":"核心放量"},{"name":"芯片电感模组","revenueShareQ1_2026":"约50%或以上","revenueShare2026Guide":"50%-60%甚至更高","grossMargin":"随新报价、产品结构升级、工艺成熟有上行空间","status":"产品结构升级"},{"name":"金属软磁粉芯/磁性材料","revenue":null,"grossMargin":null,"status":"底层材料与磁芯能力"},{"name":"DDR6/DDR供电模组","revenue2026Estimate":"未纳入2026收入预期","grossMargin":null,"status":"前期测试验证"}],"aiInductor":{"productExposure":["芯片电感","芯片电感模组","GPU/ASIC/CPU供电功率电感","DDR供电模组式电感","VPD相关需求跟踪"],"processRoutes":["模组式电感","分立式电感跟踪","按客户料号定制","产线模具切换共用"],"materials":["金属软磁材料","磁芯/磁粉能力","高规格模组材料待细分补充"],"customers":{"mps":"第一大客户，2026年占比较高，MPS在ASIC领域份额可观。","ti":"2026Q1已有相关业务，规模小于MPS。","flex":"伟创力已实现批量供货，规模小于MPS。","renesasInfineon":"瑞萨、英飞凌等进度慢于TI和伟创力。","googleAsic":"终端客户包括谷歌，谷歌部分份额由台达供应、与公司关联度较低，其余份额仍市场化竞争。","amazonAsic":"终端需求包括亚马逊等ASIC客户。","nvidia":"现有产品仍以分立式电感为主，Rubin及后续存在采用电感模组/VPD相关方案可能，公司持续跟进。","cpu":"预计通过模组厂商对接CPU/GPU下游，CPU用量提升会增加电源管理功率电感需求；该判断仍需验证。"},"capacity":"老基地产值约4-5亿元；叠加2025Q4租赁厂房临时产能，年化约7亿元；新基地2026年6-7月爬坡，规划产值8-10亿元，新旧合计13-15亿元；2027年有望满产，理想利用率预计2027H2至2028。","asp":"未给出单颗ASP；均价有望受高规格产品和模组占比提升带动，新订单可按规格和成本重新报价。","grossMargin":"2026年芯感业务毛利率预计约50%；扩产费用、锁价订单和新员工培训压制短期利润率，后续有上行空间。","revenue2026":"8亿元以上，顺利时可达10亿元","revenue2027":null,"keyQuestion":"新基地爬坡、料号数量从8-10个继续增加后的生产效率，以及MPS之外客户和Rubin后续方案切换的收入弹性。"},"marginalChanges":[{"date":"2026-06","impact":"positive","title":"芯感收入指引上修为8亿元以上","summary":"Q1披露1.6亿元，因报关时间差部分收入顺延至Q2；Q2预计2亿元以上，全年8亿元是偏下限预期，顺利时可达10亿元。"},{"date":"2026-06","impact":"positive","title":"新基地6-7月开始爬坡，满产产值8-10亿元","summary":"新基地原计划Q2爬坡，受天气和设备交付影响推迟至6-7月；新旧基地合计产值可达13-15亿元，2027年有望满产。"},{"date":"2026-06","impact":"positive","title":"模组占比提升带动产值与产品结构升级","summary":"2026Q1模组类收入占比约50%或以上，全年目标50%-60%甚至更高，是新基地产值和全年收入预期上调的重要原因。"},{"date":"2026-06","impact":"watch","title":"DDR6与封装方向仍是中长期期权","summary":"DDR6处于前期测试配合，未纳入2026收入预期；封装方向更早期，暂无明确落地时间。"}],"risks":["新基地爬坡慢于预期","订单料号增加导致生产效率波动","已锁价订单限制短期涨价","MPS客户集中度较高","Rubin后续模组/VPD切换节奏不确定","DDR6商业化节奏慢"],"dataGaps":["芯感客户收入拆分","单颗ASP","分立/模组/TLVR占比","MPS份额和终端对应量","2027芯感收入","新基地季度产能利用率","DDR6订单时间表"],"valuation":{"sharePrice":null,"totalShares":null,"marketCap":null,"baseRevenue":null,"baseNetProfit":null,"aiRevenue2026":9,"aiRevenue2027":null,"aiNetMargin":0.32,"targetPE":35,"targetPS":8}},{"id":"longci-technology","name":"龙磁科技","ticker":"300835.SZ","role":"磁性材料潜在延伸标的","positioning":"传统磁材基础较强，是否能在软磁粉芯/高端电感材料中兑现仍需更多资料确认。","confidence":"low","sourceIds":["src-user-prior-chip-inductor-notes"],"segments":[{"name":"永磁铁氧体","revenue":null,"grossMargin":null,"status":"传统主业"},{"name":"软磁/电感材料","revenue":null,"grossMargin":null,"status":"待补充"},{"name":"AI服务器相关","revenue":null,"grossMargin":null,"status":"待补充"}],"aiInductor":{"productExposure":["待补充：金属软磁粉芯","待补充：磁性材料","待补充：电感器件"],"processRoutes":[],"materials":["待补充"],"customers":{"nvidia":null,"googleAsic":null,"domesticServer":null,"powerModuleVendors":null},"capacity":null,"asp":null,"grossMargin":null,"revenue2026":null,"revenue2027":null,"keyQuestion":"龙磁科技在AI芯片电感链条中的实际收入、产品形态和客户验证状态需要优先补资料。"},"marginalChanges":[{"date":"2026-06","impact":"watch","title":"磁材公司向软磁/高频电感材料延伸的可行性待验证","summary":"如果能进入高功率密度电感材料或磁芯环节，估值口径可能改变；当前证据不足。"}],"risks":["AI电感相关性不足","传统磁材周期掩盖新业务","客户导入不明"],"dataGaps":["软磁产品收入","AI客户","产能","工艺路线","ASP/毛利率","订单状态"],"valuation":{"sharePrice":null,"totalShares":null,"marketCap":null,"baseRevenue":null,"baseNetProfit":null,"aiRevenue2026":null,"aiRevenue2027":null,"aiNetMargin":0.22,"targetPE":30,"targetPS":6}},{"id":"microgate-technology","name":"麦捷科技","ticker":"300319.SZ","role":"电感器件与材料一体化追赶者","positioning":"功率电感、滤波器、变压器和软磁材料均有布局，AI芯片电感处于海外高端客户导入和国内客户放量阶段。","confidence":"medium","sourceIds":["src-local-maijie-2606"],"segments":[{"name":"电子元器件","revenue":null,"grossMargin":"传统电感正常期25%-35%，原材料涨价后修复中","status":"核心"},{"name":"显示模组","revenue2025":18,"revenue2026Estimate":15,"grossMargin":"约9%-10%","status":"收入大但竞争激烈"},{"name":"AI服务器相关电感","revenue2026Estimate":"数千万元","grossMargin":"早期低于成熟目标，量产目标约40%","status":"导入期"}],"aiInductor":{"productExposure":["一体成型电感","铜铁共烧电感","TLVR特殊电感","板载电感","机柜/服务器电源侧电感"],"processRoutes":["绕线","一体成型","组装式","铜铁共烧","热压","冷压","TLVR"],"materials":["铁硅","铁硅铝","铁镍","软磁粉","磁芯部分外采/部分自制"],"customers":{"nvidia":"陪跑两年多，2026年重启导入，原计划Q4导入，有望提前至Q3；导入后可直接量产。","huawei":"铜铁共烧电感已批量供货。","domesticServer":"华为、中兴、联想、超聚变为第一梯队；海光、浪潮、新华三处于导入或小规模阶段。","overseasCloud":"计划通过MPS、Infineon等电源/模块厂，或国内ODM/电源模块厂间接切入。"},"capacity":"传统产线多数满产；常规扩产约20%/年；普通电感设备交期3-6个月，特殊设备约1年。","asp":"导入NVIDIA的特定料号平均约0.2美元/颗，较贵料号约0.3美元/颗；需继续核验具体料号。","grossMargin":"量产后目标约40%，早期受良率影响低于目标。","revenue2026":"数千万元","revenue2027":null,"keyQuestion":"NVIDIA导入能否按Q3/Q4完成，以及导入后料号数量、份额和良率爬坡。"},"marginalChanges":[{"date":"2026-06","impact":"positive","title":"NVIDIA相关产品重启导入","summary":"供应链缺货和调整带来重新导入机会，若Q3完成导入，Q4或2027年可能获得更大批量订单。"},{"date":"2026-06","impact":"positive","title":"传统电感价格传导与毛利率修复","summary":"传统功率电感涨价10%-30%，Q2毛利率较Q1修复，Q3修复幅度有望更高。"},{"date":"2026-06","impact":"watch","title":"材料端与头部仍有差距","summary":"惠州安科源材料业务仍在技术迭代，与行业头部有差距，但未来可能成为公司主力材料供应商。"}],"risks":["NVIDIA导入进度延后","良率爬坡慢","海外客户供应链安全审查","显示模组盈利拖累","传统业务价格修复不完全"],"dataGaps":["NVIDIA具体料号数量","2027 AI收入","AI产能上限","材料自制率","各客户份额"],"valuation":{"sharePrice":null,"totalShares":null,"marketCap":null,"baseRevenue":38,"baseNetProfit":null,"aiRevenue2026":0.4,"aiRevenue2027":null,"aiNetMargin":0.22,"targetPE":35,"targetPS":5}},{"id":"sunlord-electronics","name":"顺络电子","ticker":"002138.SZ","role":"电感平台型龙头与AI电感放量核心标的","positioning":"产品矩阵、客户覆盖和TLVR/模组方案更成熟，AI电感收入弹性和确定性相对更强。","confidence":"medium-high","sourceIds":["src-local-sunlord-2606"],"segments":[{"name":"手机通讯","revenue":null,"grossMargin":null,"status":"H客户增长、其他安卓承压"},{"name":"泛消费电子","revenueShareQ1_2026":0.22,"grossMargin":null,"status":"正常"},{"name":"汽车电子","growthQ1_2026":"约19%-20%","growth2026Guide":"30%-40%","status":"车规电感开始放量"},{"name":"特种电子","growthQ1_2026":"约50%","growth2026Guide":"约30%","status":"新物料新项目起量"},{"name":"储能","revenueShareQ1_2026":0.02,"growthQ1_2026":"约150%","status":"景气度较高"},{"name":"AI电感","revenue2026Estimate":"6-8亿元","revenue2027Estimate":"20亿元以上","grossMargin2026Estimate":"40%-50%","status":"确定性高速增长"}],"aiInductor":{"productExposure":["模组式电感","TLVR结构产品","分立式器件","VPD/下一代供电相关配合研发"],"processRoutes":["TLVR","模组式","分立式","VPD垂直供电配合研发"],"materials":["软磁合金粉体已自制","磁芯仍有部分外购","自动化率持续提升"],"customers":{"overseasAsic":"通过MPS、Infineon、ADI等功率半导体/模块客户进入AWS、AMD、Google等CSP或ASIC链条，模组式方案为主。","nvidia":"北美GPU客户目前采用分立式方案；公司通过工业富联小批量供货，并推进进入NVIDIA BOM名单。","domesticServer":"国内以服务器客户如H、浪潮、曙光为主，算力卡客户采购量相对较小；出货较大的为TLVR结构产品。","vpd":"配合客户推进Vicor芯片内嵌背部供电方案研发。"},"capacity":"以销定产；成熟产品扩产周期约3个月；国产设备为主，扩产难度较低。","asp":"MPS新项目TLVR单价可达约2美元/颗；单颗ASIC周边电感价值量约150-300元，高价值方案可达约400元。","grossMargin":"2026年上量后预计40%-50%；材料自制有助于继续提升。","revenue2026":"6-8亿元","revenue2027":"20亿元以上","keyQuestion":"进入NVIDIA BOM后的份额与量级、TLVR渗透率提升速度、MPS/ASIC新项目放量节奏。"},"marginalChanges":[{"date":"2026-06","impact":"positive","title":"AI电感2026年收入预计6-8亿元","summary":"收入占比接近10%，海外客户约70%、国内客户约30%，下半年出货集中释放。"},{"date":"2026-06","impact":"positive","title":"TLVR渗透率有望从20%-30%提升","summary":"2027-2028年行业TLVR渗透率有望提升至40%-50%以上，公司正配合多数客户TLVR项目。"},{"date":"2026-06","impact":"positive","title":"软磁合金粉体自制增强毛利率","summary":"粉体已实现自制，磁芯部分外购，材料自制和自动化提升支撑AI电感毛利率走高。"},{"date":"2026-06","impact":"watch","title":"钽电容业务进入量产爬坡","summary":"聚合物钽电容对接消费、存储、服务器和海外CSP客户，但年内重点仍是量产交付与良率。"}],"risks":["NVIDIA BOM进展不及预期","CSP项目代际切换导致老项目降价","TLVR/VPD技术路线变化","产能共用带来的挤占","材料涨价传导不完全"],"dataGaps":["AI电感分客户收入","NVIDIA份额","TLVR与非TLVR收入拆分","产能利用率","单颗GPU/ASIC价值量实绩"],"valuation":{"sharePrice":null,"totalShares":null,"marketCap":null,"baseRevenue":80,"baseNetProfit":null,"aiRevenue2026":7,"aiRevenue2027":20,"aiNetMargin":0.28,"targetPE":35,"targetPS":6}},{"id":"zhongfu-circuit","name":"中富电路","ticker":"300814.SZ","role":"模块化DC-DC电源PCB与预埋电感电容相邻环节","positioning":"不是芯片电感本体厂商，但处于模组化供电方案的高价值PCB配套环节，受益于12V转1V DC-DC模块化、预埋电感电容和客户定制趋势。","confidence":"medium","sourceIds":["src-local-zhongfu-2606"],"segments":[{"name":"DC-DC电源PCB/三次电源PCB","revenue2026Estimate":"5-6亿元AI相关收入，大部分为三次电源","grossMargin":"50%+","status":"核心弹性业务"},{"name":"一次/二次电源PCB","revenue":null,"grossMargin":"一次约20%，二次约30%","status":"传统及兼容产能"},{"name":"泰国扩产","revenue":null,"grossMargin":null,"status":"配合伟创力等客户保供"}],"aiInductor":{"productExposure":["预埋电感电容PCB","DC-DC电源PCB","三次电源PCB","模块化供电PCB"],"processRoutes":["模块方案","预埋电感电容","更厚PCB","更多层数","客户研发前期定制"],"materials":["PCB材料定制待补充","预埋电感电容工艺材料待补充"],"customers":{"flex":"伟创力DC-DC电源PCB几乎独供，已签保供协议；2026H2谷歌量逐步起量，公司已备料。","mps":"已进入MPS供应链，可间接供应英伟达、台达等电源链客户。","delta":"台达DC-DC业务处于测试阶段，尚未大规模进入。","aws":"已进入AWS供应链，后续有起量可能。","googleAsic":"谷歌项目单颗TPU对应DC-DC电源PCB价值量约400元。","nvidia":"英伟达未来高功率平台可能切换模块化方案，MPS/台达链条提供潜在切入。"},"capacity":"DC-DC电源PCB产能与一次、二次DC-DC产能存在兼容，具体规模待补充；计划在泰国扩产。","asp":"谷歌项目单颗芯片对应DC-DC电源PCB价值量约400元人民币；不同客户方案会波动。","grossMargin":"DC-DC电源PCB毛利率50%+，净利率假设约30%。","revenue2026":"5-6亿元AI相关收入","revenue2027":"预计至少翻倍增长，基于伟创力、MPS内部指引","keyQuestion":"能否在伟创力/MPS外拿到台达、AWS和英伟达模块化方案份额，以及泰国扩产节奏和真实产能上限。"},"marginalChanges":[{"date":"2026-06","impact":"positive","title":"DC-DC电源PCB进入伟创力与MPS核心链条","summary":"中富电路已进入伟创力、MPS等核心电源企业；伟创力端几乎独供且签订保供协议，MPS端可间接连接英伟达、台达等链条。"},{"date":"2026-06","impact":"positive","title":"AI相关收入2026年预计5-6亿元，2027年或翻倍","summary":"资料显示2026年AI相关收入含少量二次电源、大部分三次电源，预计5-6亿元；根据伟创力、MPS内部指引，2027年相关业务至少翻倍。"},{"date":"2026-06","impact":"watch","title":"远期80亿元市场空间但大厂重视度低","summary":"2028年按IC+GPU合计2000万颗、单颗约400元测算，远期市场约80亿元；市场不够大导致大厂配合度较低，中小厂商弹性更高。"}],"risks":["DC-DC电源PCB市场空间相对有限","台达仍处测试阶段","泰国扩产和保供能力待验证","大客户方案切换和认证节奏不确定","单颗400元价值量来自谷歌案例，跨客户可比性待验证"],"dataGaps":["三次电源PCB产能","伟创力/MPS/台达/AWS收入拆分","泰国扩产资本开支","具体层数和材料参数","客户认证节点","2028份额假设"],"valuation":{"sharePrice":null,"totalShares":null,"marketCap":null,"baseRevenue":null,"baseNetProfit":null,"aiRevenue2026":5.5,"aiRevenue2027":11,"aiNetMargin":0.3,"targetPE":20,"targetPS":5}}],"calculatorDefaults":{"scenarioMultiples":{"bear":{"pe":25,"ps":3,"aiNetMargin":0.18},"base":{"pe":35,"ps":5,"aiNetMargin":0.25},"bull":{"pe":50,"ps":8,"aiNetMargin":0.32}},"formulaNotes":["AI利润 = AI收入 x AI净利率","目标市值_PE = (传统利润 + AI利润) x 目标PE","目标市值_PS = (传统收入 + AI收入) x 目标PS","隐含股价 = 目标市值 / 总股本","如未填总股本，页面只计算目标市值，不计算隐含股价。"]}}</script>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">L</div>
+        <div>
+          <div class="brand-title">芯片电感产业情报台</div>
+          <div class="brand-subtitle">AI GPU / ASIC / TLVR / 材料</div>
+        </div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sidebar-label">Market view</div>
+        <div class="market-switch">
+          <a href="./us-tech.html" title="打开 美股科技产业情报台">美股科技</a>
+          <a href="./index.html" title="打开 A股产业情报台">A股情报</a>
+          <button class="active" type="button">行业跟踪</button>
+        </div>
+      </div>
+      <div class="sidebar-search">
+        <input id="sidebarSearch" type="search" placeholder="搜索公司、产品、客户、材料、边际变化" />
+      </div>
+      <nav class="nav" id="nav"></nav>
+      <div class="side-panel">
+        <h3>跟踪颗粒度</h3>
+        <div class="tag-list" id="granularityTags"></div>
+      </div>
+      <div class="side-panel">
+        <h3>数据口径</h3>
+        <p class="source" id="metaNote"></p>
+      </div>
+    </aside>
+    <main>
+      <div class="topbar">
+        <input class="search" id="search" placeholder="搜索公司、产品、客户、材料、边际变化" />
+        <select class="select" id="companyFilter"></select>
+        <select class="select" id="impactFilter">
+          <option value="all">全部影响</option>
+          <option value="positive">正向</option>
+          <option value="watch">观察</option>
+          <option value="negative">负向</option>
+        </select>
+      </div>
+
+      <section id="industryTrack">
+        <div class="section-title">
+          <div>
+            <h2>行业跟踪台</h2>
+            <p>把 A 股、美股和行业研究合并到一个 Market View，后续点击行业进入对应工作台。</p>
+          </div>
+        </div>
+        <div class="industry-grid" id="industryGrid"></div>
+      </section>
+
+      <section id="market">
+        <div class="section-title">
+          <div>
+            <h2>全球芯片电感市场空间</h2>
+            <p>基准情景，来自三类电感版市场空间模型</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="table-wrap">
+            <table id="marketTable"></table>
+          </div>
+        </div>
+      </section>
+
+      <section id="chain">
+        <div class="section-title">
+          <div>
+            <h2>产业链与跟踪颗粒度</h2>
+            <p>把边际变化落到需求、产品、材料、客户和财务指标</p>
+          </div>
+        </div>
+        <div class="lane-grid" id="laneGrid"></div>
+      </section>
+
+      <section id="companies">
+        <div class="section-title">
+          <div>
+            <h2>重点公司</h2>
+            <p>点击卡片查看产品、客户、催化、风险和待补数据</p>
+          </div>
+          <div class="section-actions">
+            <button type="button" class="btn" id="companyCompareBtn">公司对比</button>
+          </div>
+        </div>
+        <div class="company-grid" id="companyGrid"></div>
+      </section>
+
+      <section id="changes">
+        <div class="section-title">
+          <div>
+            <h2>行业与公司边际变化</h2>
+            <p>后续每次更新都应沉淀为事件和指标观测</p>
+          </div>
+        </div>
+        <div class="change-toolbar">
+          <div class="change-toolbar-left">
+            <select class="select" id="changeMonthFilter"></select>
+          </div>
+          <div class="change-toolbar-right" aria-label="边际变化类型筛选">
+            <button type="button" class="toggle-chip active" id="showIndustryChanges" data-change-scope="industry">行业</button>
+            <button type="button" class="toggle-chip active" id="showCompanyChanges" data-change-scope="company">公司</button>
+          </div>
+        </div>
+        <div class="changes" id="changeList"></div>
+      </section>
+
+      <section id="calculator">
+        <div class="section-title">
+          <div>
+            <h2>公司市值计算器</h2>
+            <p>固定模板：分业务利润拆分、估值倍数和目标市值展示</p>
+          </div>
+        </div>
+        <div class="calc-layout">
+          <div class="calc-card">
+            <label>公司
+              <select class="input" id="calcCompany"></select>
+            </label>
+            <div class="field-grid" id="calcFields"></div>
+          </div>
+          <div class="calc-card">
+            <div class="output-grid" id="calcOutputs"></div>
+            <div class="table-wrap">
+              <table id="scenarioTable"></table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gaps">
+        <div class="section-title">
+          <div>
+            <h2>待补数据清单</h2>
+            <p>空值不是错误，是后续调研入口</p>
+          </div>
+        </div>
+        <div class="gap-grid" id="gapGrid"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <div>
+          <h2 id="modalTitle"></h2>
+          <div class="source" id="modalSubtitle"></div>
+        </div>
+        <button class="close" id="modalClose" aria-label="关闭">×</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    const db = JSON.parse(document.getElementById("db-json").textContent);
+    const state = {
+      search: "",
+      company: "all",
+      impact: "all",
+      changeMonth: "all",
+      showIndustryChanges: true,
+      showCompanyChanges: true,
+      changeRows: [],
+      changeGroups: [],
+      modalOpen: false
+    };
+
+    const fmt = (n, d = 1) => n === null || n === undefined || Number.isNaN(Number(n))
+      ? "待补充"
+      : Number(n).toLocaleString("zh-CN", { maximumFractionDigits: d, minimumFractionDigits: d });
+    const pct = (n) => n === null || n === undefined ? "待补充" : (Number(n) * 100).toFixed(1) + "%";
+    const asList = (items) => (items || []).filter(Boolean).map(x => "<li>" + escapeHtml(String(x)) + "</li>").join("") || "<li>待补充</li>";
+    const escapeHtml = (s) => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[c]));
+
+    const navItems = [
+      ["overview", "行业总览"],
+      ["market", "市场空间"],
+      ["chain", "产业链"],
+      ["companies", "公司跟踪"],
+      ["changes", "边际变化"],
+      ["calculator", "市值计算器"],
+      ["gaps", "待补数据"]
+    ];
+
+    function init() {
+      renderNav();
+      renderMeta();
+      renderIndustryTrack();
+      renderMarket();
+      renderLanes();
+      renderFilters();
+      renderCompanies();
+      renderChanges();
+      renderCalculator();
+      bind();
+    }
+
+    function renderNav() {
+      const nav = document.getElementById("nav");
+      nav.innerHTML = navItems.map(([id, name], i) =>
+        '<button data-scroll="' + id + '" class="' + (i === 0 ? "active" : "") + '"><span>' + name + '</span><span>›</span></button>'
+      ).join("");
+    }
+
+    function renderMeta() {
+      document.getElementById("granularityTags").innerHTML = db.industry.trackingGranularities
+        .map(g => '<span class="tag">' + escapeHtml(g.name) + '</span>').join("");
+      document.getElementById("metaNote").textContent = db.meta.updatedAt + " ? " + db.meta.baseScenario + " ? " + db.meta.currency;
+    }
+
+    function renderIndustryTrack() {
+      const industries = [
+        { id: "chip-inductor", name: "\u82af\u7247\u7535\u611f", desc: "AI GPU / ASIC / TLVR / \u6750\u6599", status: "\u5df2\u5efa\u7acb\u5de5\u4f5c\u53f0", href: "industry.html" },
+        { id: "ai-compute", name: "AI\u7b97\u529b", desc: "GPU / ASIC / \u673a\u67dc / \u7535\u6e90", status: "\u5f85\u6269\u5c55", href: "industry_ai_compute.html" },
+        { id: "storage", name: "\u5b58\u50a8", desc: "HBM / NAND / \u5b58\u50a8\u5468\u671f", status: "\u5f85\u8ddf\u8e2a", href: "industry_storage.html" },
+        { id: "optical", name: "\u5149\u6a21\u5757", desc: "CPO / \u5149\u82af\u7247 / \u6570\u636e\u4e2d\u5fc3", status: "\u5f85\u8ddf\u8e2a", href: "industry_optical.html" }
+      ];
+      document.getElementById("industryGrid").innerHTML = industries.map(item =>
+        '<a class="industry-card" href="' + item.href + '">' +
+          '<h3>' + item.name + '</h3>' +
+          '<p>' + item.desc + '</p>' +
+          '<span class="source">' + item.status + '</span>' +
+        '</a>'
+      ).join("");
+    }
+
+    function metricHtml(label, value, sub) {
+      return '<div class="metric"><div class="label">' + label + '</div><div class="value">' + value + '</div><div class="sub">' + sub + '</div></div>';
+    }
+
+    function renderMarket() {
+      const rows = db.industry.marketSpaceBase;
+      document.getElementById("marketTable").innerHTML =
+        "<thead><tr><th>年份</th><th>出货量(万张)</th><th>单张用量(颗)</th><th>电感均价(元/颗)</th><th>市场空间(亿元)</th></tr></thead>" +
+        "<tbody>" + rows.map(r => '<tr><td>' + r.year + '</td><td>' + fmt(r.shipmentCards, 0) + '</td><td>' + fmt(r.avgUsage, 1) + '</td><td>' + fmt(r.avgAsp, 1) + '</td><td>' + fmt(r.marketSpace, 1) + '</td></tr>').join("") + "</tbody>";
+    }
+
+    function renderLanes() {
+      const lanes = [
+        { title: "需求驱动", items: ["AI芯片出货量", "功耗提升", "单芯片价值量", "CSP资本开支"] },
+        { title: "产品形态", items: db.industry.productTypes.map(p => p.name + "：" + p.defaultAspCny + "元/颗") },
+        { title: "材料工艺", items: ["金属软磁粉", "磁芯自制率", "TLVR结构", "铜铁共烧", "VPD/垂直供电"] },
+        { title: "公司映射", items: db.companies.map(c => c.name + "：" + c.role) }
+      ];
+      document.getElementById("laneGrid").innerHTML = lanes.map(l =>
+        '<div class="lane"><h3>' + l.title + '</h3><ul>' + asList(l.items) + '</ul></div>'
+      ).join("");
+    }
+
+    function renderFilters() {
+      const select = document.getElementById("companyFilter");
+      select.innerHTML = '<option value="all">全部公司</option>' + db.companies.map(c => '<option value="' + c.id + '">' + c.name + '</option>').join("");
+      const calc = document.getElementById("calcCompany");
+      calc.innerHTML = db.companies.map(c => '<option value="' + c.id + '">' + c.name + '</option>').join("");
+      const months = Array.from(new Set(
+        db.industry.keyChanges.concat(db.companies.flatMap(c => c.marginalChanges)).map(x => x.date).filter(Boolean)
+      )).sort((a, b) => String(b).localeCompare(String(a)));
+      document.getElementById("changeMonthFilter").innerHTML =
+        '<option value="all">全部月份</option>' + months.map(m => '<option value="' + escapeHtml(m) + '">' + escapeHtml(m) + '</option>').join("");
+    }
+
+    function textOfCompany(c) {
+      return JSON.stringify(c).toLowerCase();
+    }
+
+    function visibleCompanies() {
+      const q = state.search.trim().toLowerCase();
+      return db.companies.filter(c => {
+        const passCompany = state.company === "all" || c.id === state.company;
+        const passSearch = !q || textOfCompany(c).toLowerCase().includes(q);
+        return passCompany && passSearch;
+      });
+    }
+
+    function renderCompanies() {
+      document.getElementById("companyGrid").innerHTML = visibleCompanies().map(c => {
+        const ai = c.aiInductor || {};
+        const chips = [
+          "营收：" + (ai.revenue2026 ? "26E " + ai.revenue2026 : "待补"),
+          "毛利率：" + (ai.grossMargin || "待补")
+        ];
+        return '<article class="company-card" tabindex="0" data-company="' + c.id + '">' +
+          '<div class="company-head"><div><h3>' + c.name + '</h3><div class="ticker">' + c.ticker + '</div></div></div>' +
+          '<div class="role">' + c.role + '</div>' +
+          '<p class="desc">' + c.positioning + '</p>' +
+          '<div class="pill-row">' + chips.map(x => '<span class="pill core-pill">' + escapeHtml(x) + '</span>').join("") + '</div>' +
+          '</article>';
+      }).join("");
+    }
+
+    function renderChanges() {
+      const industryChanges = db.industry.keyChanges.map(x => ({...x, company: "\u884c\u4e1a", scope: "industry"}));
+      const companyChanges = db.companies.flatMap(c => c.marginalChanges.map(x => ({...x, company: c.name, companyId: c.id, scope: "company"})));
+      const rows = industryChanges.concat(companyChanges).filter(x => {
+        const passImpact = state.impact === "all" || x.impact === state.impact;
+        const passMonth = state.changeMonth === "all" || x.date === state.changeMonth;
+        const passScope = (x.scope === "industry" && state.showIndustryChanges) || (x.scope === "company" && state.showCompanyChanges);
+        const passCompany = state.company === "all" || x.companyId === state.company || x.company === "\u884c\u4e1a";
+        const passSearch = !state.search || JSON.stringify(x).toLowerCase().includes(state.search.toLowerCase());
+        return passImpact && passMonth && passScope && passCompany && passSearch;
+      }).sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+      state.changeRows = rows;
+      const grouped = rows.reduce((acc, item) => {
+        const date = item.date || "\u672a\u6807\u6ce8\u65e5\u671f";
+        if (!acc[date]) acc[date] = [];
+        acc[date].push(item);
+        return acc;
+      }, {});
+      const groups = Object.entries(grouped)
+        .map(([date, items]) => ({ date, items }))
+        .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+      state.changeGroups = groups;
+      document.getElementById("changeList").innerHTML = groups.map((g, i) => {
+        const companies = Array.from(new Set(g.items.map(x => x.company).filter(Boolean))).slice(0, 4).join(" / ");
+        const points = g.items.slice(0, 5).map(x => '<li>' + escapeHtml(x.title) + '</li>').join("");
+        return '<button type="button" class="change-item" data-change-index="' + i + '">' +
+          '<div><strong>' + escapeHtml(g.date) + '</strong><br><span class="source">' + escapeHtml(companies || "\u8fb9\u9645\u53d8\u5316") + '</span></div>' +
+          '<div><div class="change-title">\u6838\u5fc3\u8fb9\u9645\u53d8\u5316\u8981\u70b9</div><ul class="change-points">' + points + '</ul></div>' +
+          '<div><span class="pill positive">' + g.items.length + '\u6761</span></div>' +
+        '</button>';
+      }).join("") || '<div class="empty">\u6ca1\u6709\u5339\u914d\u7684\u8fb9\u9645\u53d8\u5316\u3002</div>';
+    }
+
+    const calculatorTemplates = {
+      "boke-new-materials": {
+        status: "占位模板，待真实数据校验",
+        method: {
+          profit: "分业务利润拆分",
+          valuation: "PE估值",
+          input: "参数暂不开放"
+        },
+        years: [
+          { year: 2026, powderProfit: 2.5, chipInductorProfit: 3.0, totalProfit: 5.5, pe: null, marketCap: null, note: "模板假设" },
+          { year: 2027, powderProfit: 3.0, chipInductorProfit: 5.0, totalProfit: 8.0, pe: null, marketCap: null, note: "模板假设" },
+          { year: 2028, powderProfit: 3.5, chipInductorProfit: 8.0, totalProfit: 12.0, pe: 40, marketCap: 480, note: "12亿利润 × 40x PE" }
+        ]
+      }
+    };
+
+    function renderCalculator() {
+      loadCalcCompany(db.companies[0].id);
+      document.getElementById("calcCompany").addEventListener("change", e => loadCalcCompany(e.target.value));
+    }
+
+    function getCalculatorTemplate(id) {
+      return calculatorTemplates[id] || {
+        status: "暂未设置固定测算模板",
+        method: {
+          profit: "待补充利润拆分",
+          valuation: "待补充倍数",
+          input: "参数暂不开放"
+        },
+        years: []
+      };
+    }
+
+    function loadCalcCompany(id) {
+      const c = db.companies.find(x => x.id === id);
+      const t = getCalculatorTemplate(id);
+      document.getElementById("calcFields").innerHTML = renderCalcMethod(c, t);
+      renderCalcOutputs(t);
+      renderScenarioTable(t);
+    }
+
+    function renderCalcMethod(c, t) {
+      const method = t.method || {};
+      return '<div class="calc-method">' +
+        '<div class="method-title">模板口径</div>' +
+        '<div class="method-kpis">' +
+          '<div class="method-kpi"><span>利润口径</span><strong>' + escapeHtml(method.profit || "待补充") + '</strong></div>' +
+          '<div class="method-kpi"><span>估值口径</span><strong>' + escapeHtml(method.valuation || "待补充") + '</strong></div>' +
+          '<div class="method-kpi"><span>交互状态</span><strong>' + escapeHtml(method.input || "参数暂不开放") + '</strong></div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    function renderCalcOutputs(t) {
+      const priced = [...(t.years || [])].reverse().find(x => x.marketCap !== null && x.marketCap !== undefined) || null;
+      const latest = [...(t.years || [])].reverse().find(x => x.totalProfit !== null && x.totalProfit !== undefined) || null;
+      const outputs = [
+        ["目标年份利润", latest ? latest.year + "E " + fmt(latest.totalProfit, 1) + "亿" : "待补充"],
+        ["PE倍数", priced?.pe ? priced.pe + "x" : "待补充"],
+        ["PE目标市值", priced?.marketCap ? fmt(priced.marketCap, 0) + "亿" : "待补充"],
+        ["数据状态", t.status || "占位模板"]
+      ];
+      document.getElementById("calcOutputs").innerHTML = outputs.map(o => '<div class="output"><div class="label">' + o[0] + '</div><div class="value">' + o[1] + '</div></div>').join("");
+    }
+
+    function renderScenarioTable(t) {
+      const rows = t.years || [];
+      document.getElementById("scenarioTable").innerHTML =
+        "<thead><tr><th>年份</th><th>粉芯利润(亿元)</th><th>芯片电感利润(亿元)</th><th>合计利润(亿元)</th><th>PE倍数</th><th>对应市值(亿元)</th><th>备注</th></tr></thead>" +
+        "<tbody>" + (rows.length ? rows.map(r => '<tr><td>' + r.year + 'E</td><td>' + fmt(r.powderProfit, 1) + '</td><td>' + fmt(r.chipInductorProfit, 1) + '</td><td>' + fmt(r.totalProfit, 1) + '</td><td>' + (r.pe ? r.pe + 'x' : '待补充') + '</td><td>' + (r.marketCap ? fmt(r.marketCap, 0) : '待补充') + '</td><td>' + escapeHtml(r.note || '') + '</td></tr>').join("") : '<tr><td colspan="7">暂未设置该公司的固定测算模板</td></tr>') + "</tbody>";
+    }
+
+    function renderGaps() {
+      document.getElementById("gapGrid").innerHTML = visibleCompanies().map(c =>
+        '<div class="gap-card"><h3>' + c.name + '</h3><ul>' + asList(c.dataGaps) + '</ul></div>'
+      ).join("");
+    }
+
+    function openCompany(id, push = true) {
+      const c = db.companies.find(x => x.id === id);
+      if (!c) return;
+      state.modalOpen = true;
+      document.getElementById("modalTitle").textContent = c.name + " · " + c.ticker;
+      document.getElementById("modalSubtitle").textContent = c.role + " · 置信度：" + c.confidence;
+      document.getElementById("modalBody").innerHTML = companyModalHtml(c);
+      document.getElementById("modalBackdrop").classList.add("open");
+      document.getElementById("modalBackdrop").setAttribute("aria-hidden", "false");
+      if (push) history.pushState({ companyModal: id }, "", "#company-" + id);
+    }
+
+    function openChange(index, push = true) {
+      const group = state.changeGroups[Number(index)];
+      if (!group) return;
+      state.modalOpen = true;
+      document.getElementById("modalTitle").textContent = group.date + " \u8fb9\u9645\u53d8\u5316";
+      document.getElementById("modalSubtitle").textContent = group.items.length + "\u6761\u6838\u5fc3\u53d8\u5316\uff0c\u6309\u516c\u53f8\u548c\u884c\u4e1a\u5c55\u5f00";
+      const details = group.items.map(x => {
+        const sources = (x.sourceIds || []).map(id => sourceTitle(id)).filter(Boolean).join(" / ") || "\u5f85\u8865";
+        return '<article class="change-detail-item">' +
+          '<h3>' + escapeHtml(x.company || "") + ' - ' + escapeHtml(x.title || "") + '</h3>' +
+          '<p>' + escapeHtml(x.summary || "\u5f85\u8865") + '</p>' +
+          '<div class="pill-row"><span class="pill ' + escapeHtml(x.impact || "watch") + '">' + escapeHtml(x.impact || "watch") + '</span><span class="pill">\u6765\u6e90\uff1a' + escapeHtml(sources) + '</span></div>' +
+        '</article>';
+      }).join("");
+      document.getElementById("modalBody").innerHTML = '<div class="change-detail-list">' + details + '</div>';
+      document.getElementById("modalBackdrop").classList.add("open");
+      document.getElementById("modalBackdrop").setAttribute("aria-hidden", "false");
+      if (push) history.pushState({ changeModal: Number(index) }, "", "#change-" + encodeURIComponent(group.date));
+    }
+
+    function closeModal(fromPop = false) {
+      if (!state.modalOpen) return;
+      state.modalOpen = false;
+      document.getElementById("modalBackdrop").classList.remove("open");
+      document.getElementById("modalBackdrop").setAttribute("aria-hidden", "true");
+      if (!fromPop && history.state && (history.state.companyModal || history.state.changeModal !== undefined || history.state.compareModal)) history.back();
+    }
+
+    function companyModalHtml(c) {
+      const ai = c.aiInductor || {};
+      const customers = ai.customers || {};
+      return '<div class="modal-grid">' +
+        box("定位", [c.positioning, '核心问题：' + (ai.keyQuestion || "待补充")]) +
+        box("业务板块", c.segments.map(s => s.name + "：" + (s.status || "") + (s.revenue2026Estimate ? "；26E " + s.revenue2026Estimate : ""))) +
+        box("AI电感产品", ai.productExposure) +
+        box("材料/工艺", (ai.materials || []).concat(ai.processRoutes || [])) +
+        box("客户与导入", Object.entries(customers).map(([k, v]) => k + "：" + (v || "待补充"))) +
+        box("产能/价格/毛利", ["产能：" + (ai.capacity || "待补充"), "ASP：" + (ai.asp || "待补充"), "毛利率：" + (ai.grossMargin || "待补充"), "收入26E：" + (ai.revenue2026 || "待补充"), "收入27E：" + (ai.revenue2027 || "待补充")]) +
+        box("\u8fb9\u9645\u53d8\u5316", c.marginalChanges.map(x => x.date + " | " + x.title + " - " + x.summary)) +
+        box("风险", c.risks) +
+        box("待补数据", c.dataGaps) +
+        box("来源", c.sourceIds.map(id => sourceTitle(id))) +
+      '</div>';
+    }
+
+    function openCompanyCompare(push = true) {
+      state.modalOpen = true;
+      document.getElementById("modalTitle").textContent = "\u516c\u53f8\u6838\u5fc3\u6307\u6807\u5bf9\u6bd4";
+      document.getElementById("modalSubtitle").textContent = "\u6307\u6807\u4e3a\u884c\uff0c\u516c\u53f8\u4e3a\u5217\uff0c\u4fbf\u4e8e\u6a2a\u5411\u6bd4\u8f83\u5ba2\u6237\u5bfc\u5165\u3001\u4ea7\u80fd\u3001ASP\u548c\u76c8\u5229\u9884\u671f";
+      const companies = db.companies;
+      const companyHead = companies.map(c => '<th>' + escapeHtml(c.name) + '<br><span class="source">' + escapeHtml(c.ticker || '') + '</span></th>').join("");
+      const metricRows = [
+        ["\u5b9a\u4f4d", c => c.role || "\u5f85\u8865"],
+        ["\u5ba2\u6237\u5bfc\u5165", c => Object.entries((c.aiInductor || {}).customers || {}).filter(([, v]) => v).map(([k, v]) => k + " - " + clip(v, 82)).join("<br>") || "\u5f85\u8865"],
+        ["\u4ea7\u80fd", c => clip((c.aiInductor || {}).capacity || "\u5f85\u8865", 110)],
+        ["ASP", c => clip((c.aiInductor || {}).asp || "\u5f85\u8865", 90)],
+        ["26E\u8425\u6536\u9884\u671f", c => (c.aiInductor || {}).revenue2026 || "\u5f85\u8865"],
+        ["27E\u8425\u6536\u9884\u671f", c => (c.aiInductor || {}).revenue2027 || "\u5f85\u8865"],
+        ["\u6bdb\u5229\u7387\u9884\u671f", c => (c.aiInductor || {}).grossMargin || "\u5f85\u8865"],
+        ["\u5173\u952e\u95ee\u9898", c => clip((c.aiInductor || {}).keyQuestion || "\u5f85\u8865", 110)]
+      ];
+      const rows = metricRows.map(([label, getter]) => '<tr><td>' + label + '</td>' + companies.map(c => '<td>' + sanitizeCompareCell(getter(c)) + '</td>').join("") + '</tr>').join("");
+      document.getElementById("modalBody").innerHTML = '<div class="table-wrap"><table class="compare-table">' +
+        '<thead><tr><th>\u6838\u5fc3\u6307\u6807</th>' + companyHead + '</tr></thead>' +
+        '<tbody>' + rows + '</tbody></table></div>';
+      document.getElementById("modalBackdrop").classList.add("open");
+      document.getElementById("modalBackdrop").setAttribute("aria-hidden", "false");
+      if (push) history.pushState({ compareModal: true }, "", "#company-compare");
+    }
+
+    function sanitizeCompareCell(value) {
+      return String(value || "\u5f85\u8865").split("<br>").map(x => escapeHtml(x)).join("<br>");
+    }
+
+    function clip(value, max = 80) {
+      const s = String(value || "");
+      return s.length > max ? s.slice(0, max - 1) + "..." : s;
+    }
+
+    function sourceTitle(id) {
+      const s = db.sources.find(x => x.id === id);
+      return s ? s.title : id;
+    }
+
+    function box(title, items) {
+      return '<div class="detail-box"><h3>' + title + '</h3><ul>' + asList(items) + '</ul></div>';
+    }
+
+    function bind() {
+      document.addEventListener("click", e => {
+        const scroll = e.target.closest("[data-scroll]");
+        if (scroll) {
+          document.getElementById(scroll.dataset.scroll)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        const card = e.target.closest("[data-company]");
+        if (card) openCompany(card.dataset.company);
+        const change = e.target.closest("[data-change-index]");
+        if (change) openChange(change.dataset.changeIndex);
+      });
+      document.getElementById("search").addEventListener("input", e => {
+        state.search = e.target.value;
+        document.getElementById("sidebarSearch").value = e.target.value;
+        refreshFiltered();
+      });
+      document.getElementById("sidebarSearch").addEventListener("input", e => {
+        state.search = e.target.value;
+        document.getElementById("search").value = e.target.value;
+        refreshFiltered();
+      });
+      document.getElementById("companyFilter").addEventListener("change", e => {
+        state.company = e.target.value;
+        refreshFiltered();
+      });
+      document.getElementById("impactFilter").addEventListener("change", e => {
+        state.impact = e.target.value;
+        renderChanges();
+      });
+      document.getElementById("companyCompareBtn").addEventListener("click", () => openCompanyCompare());
+      document.getElementById("changeMonthFilter").addEventListener("change", e => {
+        state.changeMonth = e.target.value;
+        renderChanges();
+      });
+      document.querySelectorAll("[data-change-scope]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          if (btn.dataset.changeScope === "industry") {
+            state.showIndustryChanges = !state.showIndustryChanges;
+            btn.classList.toggle("active", state.showIndustryChanges);
+          } else {
+            state.showCompanyChanges = !state.showCompanyChanges;
+            btn.classList.toggle("active", state.showCompanyChanges);
+          }
+          renderChanges();
+        });
+      });
+      document.getElementById("modalClose").addEventListener("click", () => closeModal());
+      document.getElementById("modalBackdrop").addEventListener("click", e => {
+        if (e.target.id === "modalBackdrop") closeModal();
+      });
+      window.addEventListener("popstate", () => closeModal(true));
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape") closeModal();
+      });
+      renderGaps();
+    }
+
+    function refreshFiltered() {
+      renderCompanies();
+      renderChanges();
+      renderGaps();
+    }
+
+    init();
+  </script>
+</body>
+</html>
