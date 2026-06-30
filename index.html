@@ -1,0 +1,137 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A股产业情报台</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">A</div>
+          <div>
+            <div class="brand-title">A股产业情报台</div>
+            <div class="brand-subtitle">边际变化 · 计算器 · 证据链</div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-label">Market view</div>
+          <div class="market-switch">
+            <button type="button" disabled>美股科技</button>
+            <button class="active" type="button">A股情报</button>
+            <button type="button" disabled>行业跟踪</button>
+          </div>
+        </div>
+
+        <div class="search-box">
+          <input id="globalSearch" type="search" placeholder="筛行业、公司、卖方 title" />
+        </div>
+
+        <div class="sidebar-card sidebar-date-card">
+          <label class="date-filter" for="dateFilter">
+            日期
+            <select id="dateFilter"></select>
+          </label>
+          <button class="icon-button" id="resetFilters" title="重置筛选" aria-label="重置筛选">
+            <span>↺</span>
+          </button>
+        </div>
+
+        <nav class="industry-nav" id="industryNav" aria-label="核心行业"></nav>
+      </aside>
+
+      <main class="main">
+        <section class="topbar">
+          <div>
+            <p class="eyebrow" id="topEyebrow"></p>
+            <h1>产业边际变化与目标市值上修</h1>
+          </div>
+        </section>
+
+        <section class="metrics-grid" id="metricsGrid"></section>
+
+        <section class="panel industry-panel">
+          <div class="panel-head">
+            <div>
+              <h2>核心行业模块</h2>
+              <p>点击小类查看当日重要边际变化、相关个股和段子标注</p>
+            </div>
+            <div class="segmented" id="heatMode">
+              <button class="active" data-mode="heat">热度</button>
+              <button data-mode="revision">上修</button>
+              <button data-mode="risk">风险</button>
+            </div>
+          </div>
+          <div class="industry-map" id="industryMap"></div>
+        </section>
+
+        <section class="workbench lower">
+          <div class="panel feed-panel">
+            <div class="panel-head feed-head">
+              <div>
+                <h2>边际变化雷达</h2>
+                <p>按日期、行业和搜索展示当日边际变化</p>
+              </div>
+              <div class="feed-tools">
+                <select id="signalSort">
+                  <option value="importance">重要性</option>
+                  <option value="confidence">置信度</option>
+                  <option value="upside">上修幅度</option>
+                </select>
+              </div>
+            </div>
+            <div class="signal-list" id="signalList"></div>
+          </div>
+
+          <div class="panel calculator-panel">
+            <div class="panel-head calculator-head">
+              <div>
+                <h2>卖方目标市值计算器</h2>
+                <p>展示卖方/私信段子中的具体目标市值测算</p>
+              </div>
+              <label class="stock-picker" for="calcCompany">
+                个股
+                <select id="calcCompany"></select>
+              </label>
+            </div>
+
+            <div id="calculatorView"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="detailModal" hidden>
+      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-back" id="modalBack" aria-label="返回上一层" hidden>返回</button>
+        <button class="modal-close" id="modalClose" aria-label="关闭弹窗">×</button>
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow" id="modalMeta">当日边际变化</p>
+            <h2 id="modalTitle"></h2>
+          </div>
+          <div class="modal-score" id="modalScore"></div>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+      </section>
+    </div>
+
+    <div class="modal-backdrop raw-modal-backdrop" id="rawTextModal" hidden>
+      <section class="modal raw-modal" role="dialog" aria-modal="true" aria-labelledby="rawModalTitle">
+        <button class="modal-close" id="rawModalClose" aria-label="关闭原文弹窗">×</button>
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow" id="rawModalMeta">段子底稿</p>
+            <h2 id="rawModalTitle"></h2>
+          </div>
+        </div>
+        <pre class="raw-text-body" id="rawModalBody"></pre>
+      </section>
+    </div>
+
+    <script src="./app.js?v=public-20260630"></script>
+  </body>
+</html>
