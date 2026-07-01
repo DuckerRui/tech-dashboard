@@ -1,5 +1,5 @@
-/* Public share build: rawText fields removed on 2026-06-30. */
-﻿const dataDates = ["2026-06-29", "2026-06-28", "2026-06-26", "2026-06-25", "2026-06-24", "2026-06-23", "2026-06-22", "2026-06-21", "2026-06-19", "2026-06-18", "2026-06-17"];
+/* External share build: rawText stripped and local paths hidden. */
+﻿const dataDates = ["2026-07-01", "2026-06-30", "2026-06-29", "2026-06-28", "2026-06-26", "2026-06-25", "2026-06-24", "2026-06-23", "2026-06-22", "2026-06-21", "2026-06-19", "2026-06-18", "2026-06-17"];
 
 const sectors = [
   {
@@ -214,6 +214,691 @@ const sectorDetails = {
 
 const signals = [
 // BEGIN AUTO IMPORT ZSXQ SIGNALS
+{
+  "date": "2026-07-01",
+  "title": "东北计算机 | PCB钻针涨价预期升温，国产替代机遇显现",
+  "sector": "AI",
+  "tags": [
+    "PCB",
+    "钨",
+    "PCB钻针",
+    "先进封装",
+    "CoWoS",
+    "FoCoS",
+    "电容",
+    "电子级氢氟酸"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "东北计算机 | PCB钻针涨价预期升温，国产替代机遇显现",
+  "importance": 9.4,
+  "confidence": 8.0,
+  "upside": 56,
+  "summary": "来源/title：东北计算机 | PCB钻针涨价预期升温，国产替代机遇显现。Rubin平台量产驱动PCB钻针需求，海外供给收缩带来10%-20%涨价预期，同时日月光先进封装提价、国巨电容全系列提价，AI硬件涨价链继续扩散。",
+  "summaryBody": "Rubin平台量产驱动PCB钻针需求，海外供给收缩带来10%-20%涨价预期，同时日月光先进封装提价、国巨电容全系列提价，AI硬件涨价链继续扩散。",
+  "rawText": "",
+  "topicId": "82255211242521512"
+},
+{
+  "date": "2026-07-01",
+  "title": "东吴金属 | 洛钼断供厦钨事件点评",
+  "sector": "有色",
+  "tags": [
+    "钨",
+    "厦门钨业",
+    "洛阳钼业",
+    "中钨高新",
+    "江钨装备",
+    "佳鑫国际",
+    "钨资源",
+    "AI"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "东吴金属 | 洛钼断供厦钨事件点评",
+  "importance": 9.2,
+  "confidence": 7.8,
+  "upside": 55,
+  "summary": "来源/title：东吴金属 | 洛钼断供厦钨事件点评。洛钼停供选钼尾矿对厦钨利润影响有限，但进一步显化钨资源价值，AI拉动钨需求与矿端供给不足使资源估值中枢继续抬升。",
+  "summaryBody": "洛钼停供选钼尾矿对厦钨利润影响有限，但进一步显化钨资源价值，AI拉动钨需求与矿端供给不足使资源估值中枢继续抬升。",
+  "rawText": "",
+  "topicId": "22255211241124211"
+},
+{
+  "date": "2026-07-01",
+  "title": "卖方私信 | 龙磁科技AI芯片电感进展超预期",
+  "sector": "AI",
+  "tags": [
+    "电容电感",
+    "龙磁科技",
+    "TLVR",
+    "AI芯片电感",
+    "垂直供电",
+    "华为",
+    "阿里",
+    "谷歌"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "卖方私信 | 龙磁科技AI芯片电感进展超预期",
+  "importance": 9.1,
+  "confidence": 7.7,
+  "upside": 55,
+  "summary": "来源/title：卖方私信 | 龙磁科技AI芯片电感进展超预期。TLVR与垂直供电确定性增强，龙磁作为少数能做四相TLVR电感的厂商，多家大客户推进专线沟通，AI芯片电感空间上修。",
+  "summaryBody": "TLVR与垂直供电确定性增强，龙磁作为少数能做四相TLVR电感的厂商，多家大客户推进专线沟通，AI芯片电感空间上修。",
+  "rawText": "",
+  "topicId": "22255211511825511"
+},
+{
+  "date": "2026-07-01",
+  "title": "国海计算机 | 算力租赁最具锐度的中国AI核心资产",
+  "sector": "AI",
+  "tags": [
+    "AI",
+    "算力租赁",
+    "B300",
+    "协创数据",
+    "宏景科技",
+    "盛视科技",
+    "润泽科技",
+    "润建股份"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "国海计算机 | 算力租赁最具锐度的中国AI核心资产",
+  "importance": 9.0,
+  "confidence": 7.6,
+  "upside": 54,
+  "summary": "来源/title：国海计算机 | 算力租赁最具锐度的中国AI核心资产。B300服务器价格快速上行，国内GPU租赁供需继续紧张，价格和订单向算力租赁、IDC和配套产业链扩散。",
+  "summaryBody": "B300服务器价格快速上行，国内GPU租赁供需继续紧张，价格和订单向算力租赁、IDC和配套产业链扩散。",
+  "rawText": "",
+  "topicId": "22255211242528221"
+},
+{
+  "date": "2026-07-01",
+  "title": "东北 | 行云科技签订55亿算租合同",
+  "sector": "AI",
+  "tags": [
+    "AI",
+    "算力租赁",
+    "行云科技",
+    "Token工厂",
+    "液冷",
+    "AI存储",
+    "企业级SSD",
+    "唐博"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "东北 | 行云科技签订55亿算租合同",
+  "importance": 9.0,
+  "confidence": 7.5,
+  "upside": 54,
+  "summary": "来源/title：东北 | 行云科技签订55亿算租合同。55亿五年期算力租赁合同验证高端服务器交付与运营能力，租金转Token分成、液冷板与AI存储延伸打开中长期弹性。",
+  "summaryBody": "55亿五年期算力租赁合同验证高端服务器交付与运营能力，租金转Token分成、液冷板与AI存储延伸打开中长期弹性。",
+  "rawText": "",
+  "topicId": "45544511528452158"
+},
+{
+  "date": "2026-07-01",
+  "title": "永鼎更新0701",
+  "sector": "AI",
+  "tags": [
+    "光模块",
+    "光纤",
+    "永鼎",
+    "光芯片",
+    "CW光源",
+    "光棒",
+    "MOCVD",
+    "剑桥"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "永鼎更新0701",
+  "importance": 8.9,
+  "confidence": 7.5,
+  "upside": 53,
+  "summary": "来源/title：永鼎更新0701。光芯片产能、CW光源订单和光棒产能释放同步推进，海外头部模块厂与剑桥订单提高AI光通信链条可见度。",
+  "summaryBody": "光芯片产能、CW光源订单和光棒产能释放同步推进，海外头部模块厂与剑桥订单提高AI光通信链条可见度。",
+  "rawText": "",
+  "topicId": "55522588122524854"
+},
+{
+  "date": "2026-07-01",
+  "title": "DBJSJ | 德福科技HVLP超预期",
+  "sector": "AI",
+  "tags": [
+    "PCB",
+    "铜箔",
+    "德福科技",
+    "HVLP",
+    "AI服务器",
+    "载板",
+    "科技"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "DBJSJ | 德福科技HVLP超预期",
+  "importance": 8.8,
+  "confidence": 7.7,
+  "upside": 53,
+  "summary": "来源/title：DBJSJ | 德福科技HVLP超预期。7月HVLP出货数据超预期，德福成为国内高端PCB铜箔放量最快的方向之一。",
+  "summaryBody": "7月HVLP出货数据超预期，德福成为国内高端PCB铜箔放量最快的方向之一。",
+  "rawText": "",
+  "topicId": "22255211511125481"
+},
+{
+  "date": "2026-07-01",
+  "title": "IDC板块当前怎么看",
+  "sector": "AI",
+  "tags": [
+    "AI",
+    "IDC",
+    "AIDC",
+    "液冷",
+    "润泽科技",
+    "东阳光",
+    "奥飞数据",
+    "光环新网"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "IDC板块当前怎么看",
+  "importance": 8.8,
+  "confidence": 7.5,
+  "upside": 53,
+  "summary": "来源/title：IDC板块当前怎么看。短交期、稀缺高功率液冷现货机房价格回暖，能评约束和大厂提前锁定资源提升存量IDC议价能力。",
+  "summaryBody": "短交期、稀缺高功率液冷现货机房价格回暖，能评约束和大厂提前锁定资源提升存量IDC议价能力。",
+  "rawText": "",
+  "topicId": "82255211248122822"
+},
+{
+  "date": "2026-07-01",
+  "title": "广发轻工 | 天安新材调研情况更新",
+  "sector": "AI",
+  "tags": [
+    "先进封装",
+    "光模块",
+    "玻璃基板",
+    "天安新材",
+    "FAU",
+    "玻璃V槽",
+    "GlassBridge",
+    "TGV"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "广发轻工 | 天安新材调研情况更新",
+  "importance": 8.8,
+  "confidence": 7.3,
+  "upside": 53,
+  "summary": "来源/title：广发轻工 | 天安新材调研情况更新。烁光光互联技术布局FAU玻璃V槽、三维光波导与GlassBridge路径，Q4放量预期提升。",
+  "summaryBody": "烁光光互联技术布局FAU玻璃V槽、三维光波导与GlassBridge路径，Q4放量预期提升。",
+  "rawText": "",
+  "topicId": "14422488545125242"
+},
+{
+  "date": "2026-07-01",
+  "title": "卖方私信 | 珂玛科技",
+  "sector": "国产",
+  "tags": [
+    "国产半导体零部件",
+    "珂玛科技",
+    "京瓷",
+    "陶瓷零部件",
+    "半导体零部件",
+    "数据中心",
+    "科技"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "卖方私信 | 珂玛科技",
+  "importance": 8.7,
+  "confidence": 7.3,
+  "upside": 52,
+  "summary": "来源/title：卖方私信 | 珂玛科技。日本京瓷大额加码半导体/数据中心陶瓷零部件，映射国产陶瓷零部件供应链价值重估。",
+  "summaryBody": "日本京瓷大额加码半导体/数据中心陶瓷零部件，映射国产陶瓷零部件供应链价值重估。",
+  "rawText": "",
+  "topicId": "55522588122421444"
+},
+{
+  "date": "2026-07-01",
+  "title": "卖方私信 | 芯碁微装",
+  "sector": "AI",
+  "tags": [
+    "先进封装",
+    "芯碁微装",
+    "CoPoS",
+    "订单饱满",
+    "产能"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "卖方私信 | 芯碁微装",
+  "importance": 8.7,
+  "confidence": 7.0,
+  "upside": 52,
+  "summary": "来源/title：卖方私信 | 芯碁微装。公司调整较多但未见明确利空，产品订单饱满、交付紧张，CoPoS方向带来新增量预期。",
+  "summaryBody": "公司调整较多但未见明确利空，产品订单饱满、交付紧张，CoPoS方向带来新增量预期。",
+  "rawText": "",
+  "topicId": "82255211852285182-safe"
+},
+{
+  "date": "2026-07-01",
+  "title": "卖方私信 | 蓝晓科技",
+  "sector": "国产",
+  "tags": [
+    "国产半导体零部件",
+    "蓝晓科技",
+    "超纯水树脂",
+    "中芯国际",
+    "长鑫",
+    "长存",
+    "半导体材料",
+    "科技"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "卖方私信 | 蓝晓科技",
+  "importance": 8.6,
+  "confidence": 7.4,
+  "upside": 52,
+  "summary": "来源/title：卖方私信 | 蓝晓科技。超纯水树脂具备半导体电子级量产应用能力，半导体客户和订单增速提升，国产替代空间明确。",
+  "summaryBody": "超纯水树脂具备半导体电子级量产应用能力，半导体客户和订单增速提升，国产替代空间明确。",
+  "rawText": "",
+  "topicId": "45544511411822228"
+},
+{
+  "date": "2026-07-01",
+  "title": "招商电新 | 阳光电源交流要点",
+  "sector": "AI",
+  "tags": [
+    "AI电源",
+    "阳光电源",
+    "SST",
+    "数据中心配储",
+    "PCS",
+    "直流微电网",
+    "储能",
+    "AI"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "招商电新 | 阳光电源交流要点",
+  "importance": 8.6,
+  "confidence": 7.2,
+  "upside": 52,
+  "summary": "来源/title：招商电新 | 阳光电源交流要点。10kV SST商业化产品发布在即，数据中心配储预计明年起量，AIDC电力链条的产品化节点清晰。",
+  "summaryBody": "10kV SST商业化产品发布在即，数据中心配储预计明年起量，AIDC电力链条的产品化节点清晰。",
+  "rawText": "",
+  "topicId": "55522588545218484"
+},
+{
+  "date": "2026-07-01",
+  "title": "卖方私信 | UMTC BT载板转ABF",
+  "sector": "AI",
+  "tags": [
+    "先进封装",
+    "ABF载板",
+    "BT载板",
+    "载体铜箔",
+    "UMTC",
+    "IC载板",
+    "铜箔"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "卖方私信 | UMTC BT载板转ABF",
+  "importance": 8.5,
+  "confidence": 7.0,
+  "upside": 51,
+  "summary": "来源/title：卖方私信 | UMTC BT载板转ABF。ABF需求和产能紧张，载体铜箔供给约束推动BT载板产能向高价值ABF载板切换。",
+  "summaryBody": "ABF需求和产能紧张，载体铜箔供给约束推动BT载板产能向高价值ABF载板切换。",
+  "rawText": "",
+  "topicId": "22255211511545211"
+},
+{
+  "date": "2026-07-01",
+  "title": "东吴 | 逆变器政策冲击简评",
+  "sector": "其他",
+  "tags": [
+    "其他",
+    "逆变器",
+    "阳光电源",
+    "固德威",
+    "德业股份",
+    "锦浪科技",
+    "储能"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "东吴 | 逆变器政策冲击简评",
+  "importance": 8.2,
+  "confidence": 7.0,
+  "upside": 49,
+  "summary": "来源/title：东吴 | 逆变器政策冲击简评。美国限制草案引发逆变器链条风险偏好下行，但中国产品定义和通信设备边界仍需细分，短期更多是情绪冲击。",
+  "summaryBody": "美国限制草案引发逆变器链条风险偏好下行，但中国产品定义和通信设备边界仍需细分，短期更多是情绪冲击。",
+  "rawText": "",
+  "topicId": "45544511888155548"
+},
+{
+  "date": "2026-06-30",
+  "title": "半导体设备｜前无古人后无来者之贝塔",
+  "sector": "国产",
+  "tags": [
+    "国产半导体设备",
+    "存储/HBM",
+    "先进封装",
+    "北方华创",
+    "中微公司",
+    "拓荆科技",
+    "精测电子",
+    "芯源微"
+  ],
+  "source": "浑水调研",
+  "sourceTitle": "半导体设备｜前无古人后无来者之贝塔",
+  "importance": 9.5,
+  "confidence": 8.2,
+  "upside": 57,
+  "summary": "来源/title：半导体设备｜前无古人后无来者之贝塔。韩国存储举国扩产、海外设备排期到2028年、先进封装同步加码，设备空间被上修至4000亿元，前后道设备共同进入高景气。",
+  "summaryBody": "韩国存储举国扩产、海外设备排期到2028年、先进封装同步加码，设备空间被上修至4000亿元，前后道设备共同进入高景气。",
+  "rawText": "",
+  "topicId": "浑水调研-20260630-83bc15c476e6"
+},
+{
+  "date": "2026-06-30",
+  "title": "海力士/三星发布合计3130万亿韩元半导体投资计划",
+  "sector": "AI",
+  "tags": [
+    "国产半导体设备",
+    "存储/HBM",
+    "拓荆科技",
+    "微导纳米",
+    "中微公司",
+    "精测电子",
+    "中科飞测",
+    "芯源微"
+  ],
+  "source": "浑水调研",
+  "sourceTitle": "海力士/三星发布合计3130万亿韩元半导体投资计划",
+  "importance": 9.4,
+  "confidence": 8.1,
+  "upside": 56,
+  "summary": "来源/title：海力士/三星发布合计3130万亿韩元半导体投资计划。韩国存储扩产叠加腾讯长鑫DRAM长协，继续看好存储扩产产业链的设备、材料和零部件。",
+  "summaryBody": "韩国存储扩产叠加腾讯长鑫DRAM长协，继续看好存储扩产产业链的设备、材料和零部件。",
+  "rawText": "",
+  "topicId": "浑水调研-20260630-68f0cc33e29e"
+},
+{
+  "date": "2026-06-30",
+  "title": "广发机械｜半导体设备跟踪0630",
+  "sector": "国产",
+  "tags": [
+    "国产半导体设备",
+    "半导体设备",
+    "DeepSeek",
+    "SK海力士",
+    "强一股份",
+    "长川科技",
+    "华峰测控",
+    "精智达"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "广发机械｜半导体设备跟踪0630",
+  "importance": 9.3,
+  "confidence": 7.8,
+  "upside": 56,
+  "summary": "来源/title：广发机械｜半导体设备跟踪0630。DeepSeek上调报价显示算力紧缺，SK海力士扩产和上市融资强化存储扩产持续性，继续坚定看好半导体设备和封测设备。",
+  "summaryBody": "DeepSeek上调报价显示算力紧缺，SK海力士扩产和上市融资强化存储扩产持续性，继续坚定看好半导体设备和封测设备。",
+  "rawText": "",
+  "topicId": "jft-20260630-45544511488585188"
+},
+{
+  "date": "2026-06-30",
+  "title": "天风电子｜半导体零部件是扩产瓶颈",
+  "sector": "国产",
+  "tags": [
+    "国产半导体零部件",
+    "半导体零部件",
+    "富创精密",
+    "珂玛科技",
+    "新莱应材",
+    "真空泵",
+    "真空阀",
+    "石英结构件"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "天风电子｜半导体零部件是扩产瓶颈",
+  "importance": 9.2,
+  "confidence": 7.7,
+  "upside": 55,
+  "summary": "来源/title：天风电子｜半导体零部件是扩产瓶颈。WFE扩产带动零部件需求翻倍，海外零部件交期拉长和涨价，国产零部件厂商迎来扩产和出海窗口。",
+  "summaryBody": "WFE扩产带动零部件需求翻倍，海外零部件交期拉长和涨价，国产零部件厂商迎来扩产和出海窗口。",
+  "rawText": "",
+  "topicId": "jft-20260630-55522588224841154"
+},
+{
+  "date": "2026-06-30",
+  "title": "功率半导体｜二轮调价全面开启",
+  "sector": "AI",
+  "tags": [
+    "AI",
+    "MOSFET",
+    "功率半导体",
+    "AI电源",
+    "SiC",
+    "华润微",
+    "士兰微",
+    "天岳先进"
+  ],
+  "source": "浑水调研",
+  "sourceTitle": "功率半导体｜二轮调价全面开启",
+  "importance": 9.1,
+  "confidence": 7.8,
+  "upside": 55,
+  "summary": "来源/title：功率半导体｜二轮调价全面开启。央视定调功率半导体涨价+缺货，AI需求挤占产能，MOSFET/SiC/功率IDM进入二轮调价。",
+  "summaryBody": "央视定调功率半导体涨价+缺货，AI需求挤占产能，MOSFET/SiC/功率IDM进入二轮调价。",
+  "rawText": "",
+  "topicId": "浑水调研-20260630-e81ad6128cc7"
+},
+{
+  "date": "2026-06-30",
+  "title": "广发机械｜AI PCB钻针跟踪0630",
+  "sector": "有色",
+  "tags": [
+    "钨",
+    "PCB钻针",
+    "三菱材料",
+    "住友",
+    "中钨高新",
+    "AI PCB",
+    "钨棒",
+    "钻针棒材"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "广发机械｜AI PCB钻针跟踪0630",
+  "importance": 9.1,
+  "confidence": 7.7,
+  "upside": 55,
+  "summary": "来源/title：广发机械｜AI PCB钻针跟踪0630。日本三菱材料钨制品调价执行，海外钨料低价库存消耗，钻针棒材涨价和国产替代逻辑继续强化。",
+  "summaryBody": "日本三菱材料钨制品调价执行，海外钨料低价库存消耗，钻针棒材涨价和国产替代逻辑继续强化。",
+  "rawText": "",
+  "topicId": "jft-20260630-14422488221815112"
+},
+{
+  "date": "2026-06-30",
+  "title": "天风电子｜半导体硅片涨价驱动大涨",
+  "sector": "国产",
+  "tags": [
+    "国产",
+    "国产半导体零部件",
+    "硅片",
+    "半导体硅片",
+    "SOI",
+    "重掺硅片",
+    "沪硅产业",
+    "立昂微"
+  ],
+  "source": "浑水调研",
+  "sourceTitle": "天风电子｜半导体硅片涨价驱动大涨",
+  "importance": 9.0,
+  "confidence": 7.8,
+  "upside": 54,
+  "summary": "来源/title：天风电子｜半导体硅片涨价驱动大涨。硅片行业从底部左侧进入景气右侧，AI算力、存储扩产、功率器件和国产替代推动12英寸硅片量价齐升。",
+  "summaryBody": "硅片行业从底部左侧进入景气右侧，AI算力、存储扩产、功率器件和国产替代推动12英寸硅片量价齐升。",
+  "rawText": "",
+  "topicId": "浑水调研-20260630-71d29dc8c477"
+},
+{
+  "date": "2026-06-30",
+  "title": "MLCC｜重视7月起原厂调价和调产",
+  "sector": "AI",
+  "tags": [
+    "电容电感",
+    "MLCC",
+    "三星电机",
+    "太阳诱电",
+    "太诱",
+    "风华高科",
+    "三环集团",
+    "华新科"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "MLCC｜重视7月起原厂调价和调产",
+  "importance": 9.0,
+  "confidence": 7.7,
+  "upside": 54,
+  "summary": "来源/title：MLCC｜重视7月起原厂调价和调产。三星电机长协订单有进展，太诱7月对消费级部分料号涨价50-150%，日系转产AI服务器引发消费类供需失衡。",
+  "summaryBody": "三星电机长协订单有进展，太诱7月对消费级部分料号涨价50-150%，日系转产AI服务器引发消费类供需失衡。",
+  "rawText": "",
+  "topicId": "金斧头-20260630-e3ad761e1aad"
+},
+{
+  "date": "2026-06-30",
+  "title": "Mstech科技组｜国产算力进入放量期",
+  "sector": "国产",
+  "tags": [
+    "国产算力",
+    "寒武纪",
+    "海光信息",
+    "中科曙光",
+    "高新发展",
+    "华丰科技",
+    "意华股份",
+    "光迅科技"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "Mstech科技组｜国产算力进入放量期",
+  "importance": 9.0,
+  "confidence": 7.4,
+  "upside": 54,
+  "summary": "来源/title：Mstech科技组｜国产算力进入放量期。国产算力份额突破临界点，DeepSeek/豆包需求和算力租赁涨价传导至芯片、互联和租赁三条主线。",
+  "summaryBody": "国产算力份额突破临界点，DeepSeek/豆包需求和算力租赁涨价传导至芯片、互联和租赁三条主线。",
+  "rawText": "",
+  "topicId": "jft-20260630-22255211554514551"
+},
+{
+  "date": "2026-06-30",
+  "title": "天风电新｜洁美科技全品类涨价",
+  "sector": "AI",
+  "tags": [
+    "电容电感",
+    "MLCC",
+    "洁美科技",
+    "载带",
+    "离型膜",
+    "三星电机",
+    "太阳诱电",
+    "科技"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "天风电新｜洁美科技全品类涨价",
+  "importance": 8.9,
+  "confidence": 7.4,
+  "upside": 53,
+  "summary": "来源/title：天风电新｜洁美科技全品类涨价。MLCC扩产带动纸质载带、塑料载带和离型膜上游议价，7月全品类涨价预期强化。",
+  "summaryBody": "MLCC扩产带动纸质载带、塑料载带和离型膜上游议价，7月全品类涨价预期强化。",
+  "rawText": "",
+  "topicId": "jft-20260630-55522584884412514"
+},
+{
+  "date": "2026-06-30",
+  "title": "电子布景气仍在加速",
+  "sector": "AI",
+  "tags": [
+    "PCB",
+    "电子布",
+    "CCL",
+    "中国巨石",
+    "建滔集团",
+    "建滔积层板",
+    "国际复材",
+    "中材科技"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "电子布景气仍在加速",
+  "importance": 8.8,
+  "confidence": 7.5,
+  "upside": 53,
+  "summary": "来源/title：电子布景气仍在加速。科技调仓和获利盘导致回调，但电子布6-7月价格加速、CCL同步涨价，供需缺口仍在扩大。",
+  "summaryBody": "科技调仓和获利盘导致回调，但电子布6-7月价格加速、CCL同步涨价，供需缺口仍在扩大。",
+  "rawText": "",
+  "topicId": "金斧头-20260630-065fd1a86255"
+},
+{
+  "date": "2026-06-30",
+  "title": "强推中船特气",
+  "sector": "有色",
+  "tags": [
+    "钨",
+    "六氟化钨",
+    "WF6",
+    "中船特气",
+    "存储/HBM",
+    "存储"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "强推中船特气",
+  "importance": 8.8,
+  "confidence": 7.4,
+  "upside": 53,
+  "summary": "来源/title：强推中船特气。中国对日制裁加严、钨为两用物项之一，海外WF6供给下半年预计收缩；存储扩产带动六氟化钨需求。",
+  "summaryBody": "中国对日制裁加严、钨为两用物项之一，海外WF6供给下半年预计收缩；存储扩产带动六氟化钨需求。",
+  "rawText": "",
+  "topicId": "金斧头-20260630-5aee3aae8789"
+},
+{
+  "date": "2026-06-30",
+  "title": "开源通信｜Q3液冷有望兑现",
+  "sector": "AI",
+  "tags": [
+    "液冷",
+    "Rubin",
+    "TPU",
+    "英维克",
+    "申菱环境",
+    "领益智造",
+    "银轮股份",
+    "远东股份"
+  ],
+  "source": "金斧头",
+  "sourceTitle": "开源通信｜Q3液冷有望兑现",
+  "importance": 8.8,
+  "confidence": 7.3,
+  "upside": 53,
+  "summary": "来源/title：开源通信｜Q3液冷有望兑现。Rubin和TPU开启全液冷时代，芯片功耗跃升强化液冷价值量通胀，Q3订单兑现预期继续升温。",
+  "summaryBody": "Rubin和TPU开启全液冷时代，芯片功耗跃升强化液冷价值量通胀，Q3订单兑现预期继续升温。",
+  "rawText": "",
+  "topicId": "jft-20260630-45544511442281548"
+},
+{
+  "date": "2026-06-30",
+  "title": "大族激光调研更新0629",
+  "sector": "AI",
+  "tags": [
+    "光纤",
+    "空芯光纤",
+    "预制棒",
+    "大族激光",
+    "领纤科技",
+    "科技"
+  ],
+  "source": "浑水调研",
+  "sourceTitle": "大族激光调研更新0629",
+  "importance": 8.6,
+  "confidence": 7.2,
+  "upside": 52,
+  "summary": "来源/title：大族激光调研更新0629。光纤预制棒首期计划明年6月投产，领纤科技加快推进空芯光纤商业化。",
+  "summaryBody": "光纤预制棒首期计划明年6月投产，领纤科技加快推进空芯光纤商业化。",
+  "rawText": "",
+  "topicId": "浑水调研-20260630-9499926328b7"
+},
 {
   "date": "2026-06-29",
   "title": "半导体设备｜前无古人后无来者之贝塔",
@@ -4430,15 +5115,119 @@ function signalMatchesIndustryContent(signal, name) {
   return keywords.some((keyword) => text.includes(keyword));
 }
 
-function signalMatchesIndustry(signal, name) {
-  return signal.date === selectedDate && signalMatchesIndustryContent(signal, name);
+function signalMatchesIndustry(signal, name, date = selectedDate) {
+  return signal.date === date && signalMatchesIndustryContent(signal, name);
 }
 
-function signalsForIndustry(name) {
+function signalText(signalOrChange) {
+  const signal = signalOrChange?.rawSignal || signalOrChange || {};
+  return [signal.title, signal.sourceTitle, signal.summary, signal.summaryBody, signal.rawText, ...(signal.tags || [])].join(" ");
+}
+
+function containsAny(text, terms) {
+  return terms.some((term) => text.includes(term));
+}
+
+function themeKeysForSignal(signal, industryName = "") {
+  const text = signalText(signal);
+  const keys = new Set();
+  if (industryName === "钨") {
+    if (containsAny(text, ["六氟化钨", "WF6", "特气", "高纯钨粉", "AMT", "中船特气", "昊华科技", "中巨芯", "和远气体"])) keys.add("wf6");
+    if (containsAny(text, ["PCB钨棒", "钨棒", "PCB钻针", "钻针", "棒材", "钨钢", "硬质合金", "新锐股份", "鼎泰高科"])) keys.add("pcb-tungsten");
+    if (containsAny(text, ["钨矿", "钨价", "钨资源", "洛钼", "洛阳钼业", "章源钨业", "停供", "选钼尾矿", "出口管制", "对日替代"])) keys.add("resource");
+    return keys;
+  }
+  if (industryName === "PCB") {
+    if (containsAny(text, ["CCL", "覆铜板", "建滔", "华正新材", "金安国纪", "宝鼎科技"])) keys.add("ccl");
+    if (containsAny(text, ["铜箔", "HVLP", "H3", "H4", "德福科技", "铜冠铜箔", "海亮股份", "方邦股份"])) keys.add("copper-foil");
+    if (containsAny(text, ["电子布", "Low-DK", "Low-CTE", "玻纤布", "宏和科技", "国际复材", "中国巨石", "中材科技"])) keys.add("glass-cloth");
+    if (containsAny(text, ["树脂", "PPO", "硅微粉", "联瑞新材", "圣泉集团", "东材科技", "凌玮科技"])) keys.add("resin-powder");
+    if (containsAny(text, ["PCB钻针", "钻针", "PCB钨棒", "钨棒", "棒材", "鼎泰高科", "新锐股份", "杰美特"])) keys.add("drill");
+    if (containsAny(text, ["ABF", "BT载板", "IC载板", "载板", "深南电路", "兴森科技"])) keys.add("substrate");
+    return keys;
+  }
+  if (industryName === "先进封装") {
+    if (containsAny(text, ["玻璃基板", "TGV", "GlassBridge", "Glass Bridge", "玻璃桥", "云天半导体", "沃格光电", "凯盛科技"])) keys.add("glass-substrate");
+    if (containsAny(text, ["CoWoS", "CoPoS", "FoCoS", "TCB", "日月光", "先进封装报价"])) keys.add("advanced-package");
+    if (containsAny(text, ["ABF", "BT载板", "IC载板", "载板"])) keys.add("substrate");
+    if (containsAny(text, ["封装设备", "TGV设备", "电镀", "沉铜", "检测", "东威科技", "三孚新科", "芯碁微装", "大族激光"])) keys.add("equipment");
+    return keys;
+  }
+  if (industryName === "光模块" || industryName === "光纤") {
+    if (containsAny(text, ["光纤", "光缆", "光棒", "预制棒", "长飞光纤", "亨通光电", "中天科技", "远东股份", "永鼎"])) keys.add("fiber");
+    if (containsAny(text, ["CPO", "NPO", "MPO", "FAU", "GlassBridge", "玻璃桥", "插芯", "光互连", "唯科科技", "茂莱光学"])) keys.add("optical-interconnect");
+    if (containsAny(text, ["光芯片", "CW光源", "MOCVD", "源杰科技", "长光华芯"])) keys.add("optical-chip");
+    if (containsAny(text, ["800G", "1.6T", "光模块", "中际旭创", "新易盛", "天孚通信"])) keys.add("module");
+    return keys;
+  }
+  if (industryName === "液冷") {
+    if (containsAny(text, ["MGX", "Rubin", "英伟达生态", "生态合作伙伴"])) keys.add("nv-ecosystem");
+    if (containsAny(text, ["Manifold", "波纹管", "集管", "金富科技", "五洋自控", "Switch tray"])) keys.add("manifold-bellows");
+    if (containsAny(text, ["CDU", "冷板", "UQD", "MQD", "快速接头", "母线排", "英维克", "比亚迪电子", "立讯精密", "领益智造"])) keys.add("liquid-parts");
+    if (containsAny(text, ["IDC", "AIDC", "机房", "高功率液冷", "数据中心"])) keys.add("idc-liquid");
+    if (containsAny(text, ["电子泵", "飞龙股份", "银轮股份", "三花智控"])) keys.add("pump-thermal");
+    return keys;
+  }
+  if (industryName === "电容电感") {
+    if (containsAny(text, ["MLCC", "国巨", "三星电机", "三环集团", "风华高科", "洁美科技"])) keys.add("mlcc");
+    if (containsAny(text, ["电容", "薄膜电容", "牛角电容", "电容器纸", "法拉电子", "江海股份", "艾华集团", "王子新材"])) keys.add("capacitor");
+    if (containsAny(text, ["电感", "TLVR", "垂直供电", "龙磁科技", "顺络电子", "麦捷科技"])) keys.add("inductor");
+    return keys;
+  }
+  if (industryName === "AI" || industryName === "国产算力") {
+    if (containsAny(text, ["算力租赁", "算租", "Token工厂", "B300", "GPU租赁", "行云科技", "协创数据", "润泽科技"])) keys.add("compute-leasing");
+    if (containsAny(text, ["IDC", "AIDC", "机房", "能评", "数据中心"])) keys.add("idc");
+    if (containsAny(text, ["国产AI芯片", "国产芯片", "昇腾", "寒武纪", "海光", "摩尔线程", "ASIC", "GPU测试"])) keys.add("domestic-chip");
+    if (containsAny(text, ["Meta", "OpenAI", "Anthropic", "Capex", "资本开支", "云业务"])) keys.add("ai-capex");
+    return keys;
+  }
+  return keys;
+}
+
+function themeIntersectionScore(anchor, candidate, industryName) {
+  const anchorKeys = themeKeysForSignal(anchor, industryName);
+  const candidateKeys = themeKeysForSignal(candidate, industryName);
+  if (!anchorKeys.size || !candidateKeys.size) return 0;
+  return [...anchorKeys].filter((key) => candidateKeys.has(key)).length;
+}
+
+function relationScore(anchor, candidate, industryName) {
+  if (!anchor) return 1;
+  let score = themeIntersectionScore(anchor, candidate, industryName) * 4;
+  const anchorCompanies = new Set(companiesForSignal(anchor));
+  const candidateCompanies = new Set(companiesForSignal(candidate.rawSignal || candidate));
+  for (const company of anchorCompanies) {
+    if (candidateCompanies.has(company)) score += 3;
+  }
+  const anchorTags = new Set((anchor.tags || []).filter((tag) => !industryOnlyTerms.has(tag)));
+  const candidateTags = new Set(((candidate.rawSignal || candidate).tags || []).filter((tag) => !industryOnlyTerms.has(tag)));
+  for (const tag of anchorTags) {
+    if (candidateTags.has(tag)) score += 1;
+  }
+  return score;
+}
+
+function signalsForIndustry(name, options = {}) {
+  const {
+    date = selectedDate,
+    includeHistory = false,
+    maxDate = date,
+    excludeTopicId = "",
+    excludeTitle = "",
+    limit = 8,
+    anchorSignal = null,
+    minRelationScore = 0,
+  } = options;
   return signals
-    .filter((signal) => signalMatchesIndustry(signal, name))
-    .sort((a, b) => (b.importance || 0) - (a.importance || 0))
-    .slice(0, 8);
+    .filter((signal) => {
+      if (excludeTopicId && signal.topicId === excludeTopicId) return false;
+      if (excludeTitle && signal.title === excludeTitle && signal.date === maxDate) return false;
+      if (!signalMatchesIndustryContent(signal, name)) return false;
+      if (anchorSignal && relationScore(anchorSignal, signal, name) < minRelationScore) return false;
+      return includeHistory ? signal.date <= maxDate : signal.date === date;
+    })
+    .sort((a, b) => b.date.localeCompare(a.date) || (b.importance || 0) - (a.importance || 0))
+    .slice(0, limit);
 }
 
 function latestIndustryDate(name) {
@@ -4458,7 +5247,7 @@ function industryCardStatus(name, detail) {
   if (detail) {
     return {
       hasToday: true,
-      left: `当日 ${detail.changes.length} 条边际`,
+      left: `当日 ${detail.todayCount || detail.changes.length} 条边际`,
       right: "查看详情",
     };
   }
@@ -5079,32 +5868,84 @@ function sectorDigest(name, matchedSignals) {
   return `${matchedSignals.length} 条精选`;
 }
 
+function signalToIndustryChange(signal) {
+  return {
+    date: signal.date,
+    title: signalSourceTitle(signal) || signal.title,
+    summary: signal.summary,
+    rawSignal: signal,
+    companies: signalCompanyCards(signal),
+  };
+}
+
+function staticDetailChangesForIndustry(name, maxDate) {
+  const detail = sectorDetails[name];
+  if (!detail?.changes?.length || detail.date > maxDate) return [];
+  return detail.changes.map((change) => ({
+    date: detail.date,
+    title: change.title,
+    summary: change.summary,
+    detail,
+    companies: change.companies || [],
+  }));
+}
+
+function historyChangesForIndustry(name, options = {}) {
+  const maxDate = options.maxDate || selectedDate;
+  const dynamic = signalsForIndustry(name, {
+    includeHistory: true,
+    maxDate,
+    excludeTopicId: options.excludeTopicId || "",
+    excludeTitle: options.excludeTitle || "",
+    limit: options.limit || 40,
+    anchorSignal: options.anchorSignal || null,
+    minRelationScore: options.minRelationScore || 0,
+  }).map(signalToIndustryChange);
+  const staticChanges = staticDetailChangesForIndustry(name, maxDate);
+  const seen = new Set();
+  return [...dynamic, ...staticChanges]
+    .filter((change) => !options.anchorSignal || relationScore(options.anchorSignal, change, name) >= (options.minRelationScore || 0))
+    .filter((change) => {
+      const key = `${change.date}|${change.title}|${signalSummaryText(change.rawSignal || change)}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .sort((a, b) => b.date.localeCompare(a.date));
+}
+
+function industryNames() {
+  return sectors.flatMap((sector) => sector.children.map(([name]) => name));
+}
+
+function primaryIndustryForSignal(signal) {
+  const names = industryNames();
+  const exactTag = (signal.tags || []).find((tag) => names.includes(tag) && signalMatchesIndustryContent(signal, tag));
+  if (exactTag) return exactTag;
+  return names.find((name) => signalMatchesIndustryContent(signal, name)) || "";
+}
+
+function changeMetricPills(change) {
+  if (change.rawSignal) return signalMetricPills(change.rawSignal);
+  if (change.detail) return detailMetricPills(change.detail);
+  return "";
+}
+
 function detailForIndustry(name) {
-  const staticDetail = sectorDetails[name];
-  if (staticDetail && staticDetail.date === selectedDate) return staticDetail;
-
   const matchedSignals = signalsForIndustry(name);
-  if (!matchedSignals.length) return null;
+  const historicalChanges = historyChangesForIndustry(name, { maxDate: selectedDate, limit: 60 });
+  if (!matchedSignals.length && !historicalChanges.length) return null;
 
-  const score = Math.round(Math.max(...matchedSignals.map((signal) => signal.importance || 0)) * 10);
-  const topUpside = Math.max(...matchedSignals.map((signal) => signal.upside || 0), 0);
+  const scoreSignals = matchedSignals.length ? matchedSignals : historicalChanges.map((change) => change.rawSignal).filter(Boolean);
+  const score = scoreSignals.length ? Math.round(Math.max(...scoreSignals.map((signal) => signal.importance || 0)) * 10) : sectorDetails[name]?.score || 0;
+  const topUpside = scoreSignals.length ? Math.max(...scoreSignals.map((signal) => signal.upside || 0), 0) : 0;
   return {
     score,
     revision: topUpside ? `+${topUpside}%` : "-",
-    meta: sectorDigest(name, matchedSignals),
+    meta: `${sectorDigest(name, matchedSignals)} · 历史 ${historicalChanges.length} 条`,
     date: selectedDate,
-    changes: matchedSignals.map((signal) => ({
-      title: signal.title,
-      summary: signal.summary,
-      rawSignal: signal,
-      companies: companiesForSignal(signal)
-        .map((company) => ({
-          name: company,
-          role: signal.source,
-          highlight: companyUpdateSummary(company, signal),
-          joke: true,
-        })),
-    })),
+    todayCount: matchedSignals.length,
+    changes: historicalChanges,
   };
 }
 
@@ -5484,8 +6325,17 @@ function selectCalculatorCompany(companyName) {
 function openSignalModal(signal, keepStack = false) {
   if (!signal) return;
   if (!keepStack) resetModalStack();
-  const relatedKey = signal.tags.find((tag) => sectorDetails[tag]);
-  const related = relatedKey ? sectorDetails[relatedKey] : null;
+  const relatedKey = primaryIndustryForSignal(signal);
+  const relatedChanges = relatedKey
+    ? historyChangesForIndustry(relatedKey, {
+        maxDate: signal.date,
+        excludeTopicId: signal.topicId,
+        excludeTitle: signal.title,
+        limit: 18,
+        anchorSignal: signal,
+        minRelationScore: 4,
+      })
+    : [];
   el("modalTitle").textContent = signal.title;
   el("modalMeta").textContent = `${signal.date} · ${signal.source} · ${signal.sector}`;
   el("modalScore").innerHTML = `<span>重要性 ${signal.importance.toFixed(1)}</span><strong>上修 ${signal.upside}%</strong>`;
@@ -5509,18 +6359,20 @@ function openSignalModal(signal, keepStack = false) {
       </div>
     </article>
     ${
-      related
-        ? related.changes
+      relatedChanges.length
+        ? relatedChanges
             .map(
               (change, index) => `
               <article class="change-block">
-                <div class="change-date-badge">${modalDateBadge(related.date)}</div>
+                <div class="change-date-badge">${modalDateBadge(change.date)}</div>
                 <div class="change-content">
                   <div class="change-card-head">
-                    <h3>${change.title}</h3>
-                    <div class="change-card-metrics">${detailMetricPills(related)}</div>
+                    <h3>${escapeHtml(change.title)}</h3>
+                    <div class="change-card-metrics">${changeMetricPills(change)}</div>
                   </div>
-                  <p>${change.summary}</p>
+                  <button class="raw-summary-block" type="button" data-related-raw-index="${index}">
+                    ${escapeHtml(change.rawSignal ? signalSummaryText(change.rawSignal) : signalSummaryText(change))}
+                  </button>
                   <div class="company-grid">
                     ${change.companies
                       .map(renderCompanyChip)
@@ -5539,6 +6391,13 @@ function openSignalModal(signal, keepStack = false) {
   document.querySelector("[data-raw-current-signal]")?.addEventListener("click", (event) => {
     event.stopPropagation();
     openRawTextModal(signal);
+  });
+  document.querySelectorAll("[data-related-raw-index]").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const change = relatedChanges[Number(button.dataset.relatedRawIndex)];
+      openRawTextModal(change?.rawSignal || { title: change?.title, summary: change?.summary, rawText: change?.summary, date: change?.date });
+    });
   });
 }
 
@@ -5567,8 +6426,12 @@ function openSectorModal(name, keepStack = false) {
     .map(
       (change, index) => `
       <article class="change-block">
-        <div class="change-index">${index + 1}</div>
+        <div class="change-date-badge">${modalDateBadge(change.date)}</div>
         <div class="change-content">
+          <div class="change-card-head">
+            <h3>${escapeHtml(change.title)}</h3>
+            <div class="change-card-metrics">${changeMetricPills(change)}</div>
+          </div>
           <button class="raw-summary-block" type="button" data-sector-raw-index="${index}">
             ${escapeHtml(change.rawSignal ? signalSummaryText(change.rawSignal) : signalSummaryText(change))}
           </button>
@@ -5588,7 +6451,7 @@ function openSectorModal(name, keepStack = false) {
     button.addEventListener("click", (event) => {
       event.stopPropagation();
       const change = detail.changes[Number(button.dataset.sectorRawIndex)];
-      openRawTextModal(change?.rawSignal || { title: change?.title, summary: change?.summary, rawText: change?.summary, date: detail.date });
+      openRawTextModal(change?.rawSignal || { title: change?.title, summary: change?.summary, rawText: change?.summary, date: change?.date });
     });
   });
 }

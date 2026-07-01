@@ -1,14 +1,13 @@
-# Tech Dashboard Public Build
+# Tech Dashboard External Share Build
 
-This folder is a static GitHub Pages build for the shared dashboards.
-
-Generated: 2026-06-30
+Static GitHub Pages build for external forwarding.
 
 Pages:
-- `index.html`: A-share industry intelligence dashboard
-- `us-tech.html`: US tech industry intelligence dashboard
+- `index.html`: A-share dashboard
+- `us-tech.html`: US tech dashboard
 - `industry.html`: industry tracking dashboard
 
-Notes:
-- Sensitive `rawText` fields were removed from `app.js`.
-- Local filesystem paths were removed from published HTML data fields.
+Public-safety handling:
+- A-share `rawText` fields are stripped.
+- Local filesystem paths are hidden.
+- Inter-page navigation links are rewritten for GitHub Pages.
